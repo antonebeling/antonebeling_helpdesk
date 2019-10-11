@@ -1,0 +1,154 @@
+﻿.hr-60 {
+  width: 60%; }
+
+.width-60 {
+  width: 60%; }
+
+.margin-right {
+  margin-right: 0.6rem; }
+
+.padding-top {
+  padding-top: 2rem; }
+
+.padding-bottom {
+  padding-bottom: 2rem; }
+
+.padding-right {
+  padding-right: 2rem; }
+
+.padding-left {
+  padding-left: 2rem; }
+
+.padding-all {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem; }
+
+.breadcrumb {
+  background-color: white; }
+
+#FAQdropdown {
+  width: 100%;
+  cursor: pointer; }
+
+#FAQpageDropdown {
+  width: 100%;
+  cursor: pointer; }
+
+.faqSection .card-header a {
+  color: black;
+  text-decoration: none; }
+
+.faqSection .card-header .lead {
+  font-size: 1.2rem; }
+
+.faqSection .card-body p {
+  margin-bottom: 0; }
+
+nav {
+  background-color: #d4e8fc; }
+  nav .navbar {
+    padding-top: 0;
+    padding-bottom: 0; }
+  nav li {
+    font-size: 1.4rem; }
+
+.image-fitting-div {
+  text-align: center; }
+  @media (min-width: 992px) {
+    .image-fitting-div {
+      height: 400px;
+      overflow: hidden; } }
+
+.fa-file-alt,
+.fa-envelope,
+.fa-phone {
+  color: #d4e8fc; }
+
+footer {
+  background-color: #95cbfa; }
+  footer ul {
+    list-style-type: none;
+    font-size: 1rem;
+    padding-left: 0;
+    padding-right: 0; }
+    @media (max-width: 574px) {
+      footer ul {
+        font-size: 0.8rem; } }
+  footer a {
+    color: inherit; }
+
+.product-item {
+  height: 16rem;
+  background-color: #d4e8fc;
+  border-radius: 0.4rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem; }
+  .product-item .product-item-icon {
+    height: 7rem; }
+    .product-item .product-item-icon .product-item-iconColor {
+      color: #428BCA;
+      font-size: 4rem;
+      transition: 500ms; }
+  .product-item:hover .product-item-iconColor {
+    font-size: 4.5rem;
+    color: #2d6ab9;
+    transition: 200ms; }
+  .product-item .lead {
+    font-size: 1.2rem; }
+  @media (min-width: 768px) {
+    .product-item {
+      height: 18rem; } }
+  @media (max-width: 574px) {
+    .product-item {
+      height: 5rem;
+      padding-top: 0.5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      text-align: center; }
+      .product-item .product-item-icon {
+        display: none; }
+      .product-item h3 {
+        font-size: 1.2rem; }
+      .product-item .cardDesc .lead {
+        display: none; } }
+
+.cardHover {
+  color: inherit; }
+
+.cardHover:hover {
+  text-decoration: none;
+  color: inherit; }
+
+.informationGrid img {
+  max-height: 100%;
+  text-align: center;
+  max-width: 100%; }
+
+.informationGrid .caption {
+  font-style: italic; }
+
+.informationGrid .column {
+  padding-left: 0;
+  padding-right: 0; }
+
+.informationTextFaq {
+  font-size: 1.1rem; }
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/

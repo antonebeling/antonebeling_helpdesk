@@ -1,0 +1,34 @@
+﻿[
+  {
+    "outputFile": "UI/css/main.css",
+    "inputFile": "UI/scss/main.scss"
+  },
+  {
+    "outputFile": "UI/scss/_variables.css",
+    "inputFile": "UI/scss/_variables.scss"
+  },
+  {
+    "outputFile": "UI/scss/_productPage.css",
+    "inputFile": "UI/scss/_productPage.scss"
+  },
+  {
+    "outputFile": "UI/scss/_icons.css",
+    "inputFile": "UI/scss/_icons.scss"
+  },
+  {
+    "outputFile": "UI/scss/_homePage.css",
+    "inputFile": "UI/scss/_homePage.scss"
+  },
+  {
+    "outputFile": "UI/scss/_global.css",
+    "inputFile": "UI/scss/_global.scss"
+  },
+  {
+    "outputFile": "UI/scss/_footer.css",
+    "inputFile": "UI/scss/_footer.scss"
+  },
+  {
+    "outputFile": "UI/scss/_faq.css",
+    "inputFile": "UI/scss/_faq.scss"
+  }
+]

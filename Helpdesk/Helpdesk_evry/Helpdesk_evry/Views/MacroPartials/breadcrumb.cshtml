@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web
+
+@{ 
+    var breadcrumbSelection = Model.Content.Ancestors().ToArray(); 
+}
+
+@if (breadcrumbSelection.Length > 0)
+{
+    <ul class="breadcrumb mb-0">
+        
+        @foreach (var item in breadcrumbSelection.OrderBy(x => x.Level))
+        {
+            <li class="breadcrumb-item"><a href="@item.Url">@item.Name</a></li>
+        }
+        <li class="breadcrumb-item active">@Model.Content.Name</li>
+    </ul>
+}

@@ -1,0 +1,17 @@
+@helper faqCards(string question, System.Web.IHtmlString answer, int id){
+    <div class="pb-3 pr-3 pl-3">
+        <div class="card  mb-0 collapsed card-link" data-toggle="collapse" href="#@id">
+            <div class="card-header">
+                <a class="lead">
+                    @question
+                </a>
+            </div>
+
+            <div id="@id" class="collapse">
+                <div class="card-body">
+                    @answer
+                </div>
+            </div>
+        </div>
+    </div>
+}

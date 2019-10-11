@@ -1,0 +1,23 @@
+.fa-file-alt,
+.fa-envelope,
+.fa-phone{
+    color: $light-passive-bg;
+}
+
+footer{
+    ul{
+        list-style-type: none;
+        font-size: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+        @media(max-width: 574px){
+            font-size: 0.8rem;
+        }
+    }   
+
+    a{
+        color: inherit;
+    }
+
+    background-color: $footer-color;
+}

@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ProductPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+	var homePage = Model.Root();
+}
+
+@{
+	var FAQselection = Model.ChildrenOfType("fAQItem")
+		.Where(x => x.IsVisible())
+		.OrderBy(x => x.Id);
+}
+
+<div class="informationGrid margin-auto padding-bottom">
+	@(Html.GetGridHtml(Model, "productPageContent"))
+</div>
+
+<section class="faqSection">
+	<div class="container">
+		<div class="row">
+			@{
+				if(FAQselection != null && FAQselection.Any()){
+					<h3>Svar på de vanligaste @Model.Name frågorna vi får:</h3>
+
+					@Html.Partial("Faq/_FaqCategory", FAQselection);
+				}
+			}
+		</div>
+	</div>
+</section>

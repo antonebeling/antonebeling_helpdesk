@@ -1,0 +1,47 @@
+﻿.hr-60 {
+  width: 60%; }
+
+.width-60 {
+  width: 60%; }
+
+.margin-right {
+  margin-right: 0.6rem; }
+
+.padding-top {
+  padding-top: 2rem; }
+
+.padding-bottom {
+  padding-bottom: 2rem; }
+
+.padding-right {
+  padding-right: 2rem; }
+
+.padding-left {
+  padding-left: 2rem; }
+
+.padding-all {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem; }
+
+.breadcrumb {
+  background-color: white; }
+
+#FAQdropdown {
+  width: 100%;
+  cursor: pointer; }
+
+#FAQpageDropdown {
+  width: 100%;
+  cursor: pointer; }
+
+.faqSection .card-header a {
+  color: black;
+  text-decoration: none; }
+
+.faqSection .card-header .lead {
+  font-size: 1.2rem; }
+
+.faqSection .card-body p {
+  margin-bottom: 0; }

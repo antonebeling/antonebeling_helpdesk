@@ -1,0 +1,17 @@
+@model IEnumerable<IPublishedContent>
+
+@{
+    foreach (var item in Model)
+    {
+        if(Model != null && Model.Any()){
+
+            var FAQselection = item.ChildrenOfType("fAQItem")
+                .Where(x => x.IsVisible())
+                .OrderBy(x => x.Id);
+
+            <h3>@item.Name</h3>
+
+            @Html.Partial("Faq/_FaqCategory", FAQselection);
+        }
+    }
+}

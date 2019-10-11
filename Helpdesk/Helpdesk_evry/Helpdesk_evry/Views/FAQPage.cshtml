@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.FAqpage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+	Layout = "master.cshtml";
+	var homePage = Model.Root();
+}
+<div class="container">
+	<div class="row">
+		<h2>@(Model.Value<string>("title"))</h2>
+	</div>
+</div>
+
+
+<section class="informationTextFaq">
+	<div class="container">
+		<div class="row">
+			@(Model.Value("informationText"))
+		</div>
+	</div>
+</section>
+
+<section class="faqSection">
+	<div class="container">
+		<div class="row">
+			@{
+				var selection = homePage.ChildrenOfType("productPage")
+				.Where(x => x.IsVisible())
+				.OrderBy(x => x.Id);
+				
+				@(Html.Partial("Faq/_AllFaq", selection))
+
+			}
+		</div>
+	</div>
+</section>

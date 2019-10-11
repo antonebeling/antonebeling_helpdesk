@@ -1,0 +1,13 @@
+@model IEnumerable<IPublishedContent>
+
+<div id="FAQdropdown">
+    @{
+        foreach(var item in Model){
+            var question = item.Value<string>("question");
+            var answer = Html.Raw(Html.ReplaceLineBreaksForHtml(item.Value<string>("answer")));
+            var id = item.Id;
+            
+            @(Helpers.faqCards(@question, @answer, @id));
+        }
+    }
+</div>

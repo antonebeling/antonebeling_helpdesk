@@ -1,0 +1,31 @@
+
+
+.informationGrid{
+    img{
+        max-height: 100%;
+        text-align: center;
+        max-width: 100%;
+    }
+    .caption{
+        font-style: italic;
+    }
+    .column{
+        padding-left: 0;
+        padding-right: 0;
+        
+    }
+}
+
+// .FAQ{
+//     .FAQlist{
+//         list-style-type: none;
+
+//         @media(max-width: 576px){
+//             padding-left: 0;
+//             h4{
+//                 padding-left: 1rem;
+//             }
+//         }
+//     }
+// }
+

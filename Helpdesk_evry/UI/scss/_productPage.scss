@@ -10,11 +10,18 @@
         font-style: italic;
     }
     .column{
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
         
     }
 }
+
+.faqSection{
+    h3{
+        padding: 1rem;
+    }
+}
+
 
 // .FAQ{
 //     .FAQlist{

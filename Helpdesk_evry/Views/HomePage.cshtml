@@ -10,7 +10,7 @@
 <div class="container-fluid">
 	<div><h3></h3></div>
 	<div class="row padding-bottom justify-content-md-center">
-		<div class="col-12">
+		<div class="col-12" style="padding: 0">
 			@{
 				var homeImage = Model.Value<IPublishedContent>("entryImage");
 				if(homeImage != null)
@@ -23,7 +23,7 @@
 </div>
 
 <section class="text-center">
-	<div class="container padding-bottom">
+	<div class="container">
     	<div class="row">
 			@{
 				var items = Model.Value<IEnumerable<IPublishedElement>>("boxList");

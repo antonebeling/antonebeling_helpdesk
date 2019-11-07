@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "49f7b2ba6a9706e2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f2811e4e228d3cc1")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -82,7 +82,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>FAQ Page</summary>
 	[PublishedModel("fAQPage")]
-	public partial class FAqpage : PublishedContentModel, ISEocontrol
+	public partial class FAqpage : PublishedContentModel, IContactFormContent, IFormControl, ISEocontrol
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -118,6 +118,41 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("title")]
 		public string Title => this.Value<string>("title");
+
+		///<summary>
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("receievingEmail")]
+		public string ReceievingEmail => ContactFormContent.GetReceievingEmail(this);
+
+		///<summary>
+		/// Sending Email: Enter the email from which the emails will appear to be sent from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("sendingEmail")]
+		public string SendingEmail => ContactFormContent.GetSendingEmail(this);
+
+		///<summary>
+		/// Service Department: Enter the list of the different Service Departments
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("serviceDepartment")]
+		public IEnumerable<string> ServiceDepartment => ContactFormContent.GetServiceDepartment(this);
+
+		///<summary>
+		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("typeOfProblem")]
+		public IEnumerable<string> TypeOfProblem => ContactFormContent.GetTypeOfProblem(this);
+
+		///<summary>
+		/// displayForm: Wether or not to display the contact form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("displayForm")]
+		public bool DisplayForm => FormControl.GetDisplayForm(this);
 
 		///<summary>
 		/// Meta Description: Enter the meta description for this page, one to two rows
@@ -176,7 +211,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>HomePage</summary>
 	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel
+	public partial class HomePage : PublishedContentModel, IContactFormContent, IFormControl
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -235,6 +270,20 @@ namespace Umbraco.Web.PublishedModels
 		public string ContactPhone => this.Value<string>("contactPhone");
 
 		///<summary>
+		/// Default Receieving Email: Enter the wanted default reveieving email address
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("defaultReceievingEmail")]
+		public string DefaultReceievingEmail => this.Value<string>("defaultReceievingEmail");
+
+		///<summary>
+		/// Default Sending Email: Enter the wanted default sending email address.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("defaultSendingEmail")]
+		public string DefaultSendingEmail => this.Value<string>("defaultSendingEmail");
+
+		///<summary>
 		/// Entry Image: The image that is the first thing the user sees on the homepage
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
@@ -289,11 +338,46 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("websiteTitleHome")]
 		public string WebsiteTitleHome => this.Value<string>("websiteTitleHome");
+
+		///<summary>
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("receievingEmail")]
+		public string ReceievingEmail => ContactFormContent.GetReceievingEmail(this);
+
+		///<summary>
+		/// Sending Email: Enter the email from which the emails will appear to be sent from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("sendingEmail")]
+		public string SendingEmail => ContactFormContent.GetSendingEmail(this);
+
+		///<summary>
+		/// Service Department: Enter the list of the different Service Departments
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("serviceDepartment")]
+		public IEnumerable<string> ServiceDepartment => ContactFormContent.GetServiceDepartment(this);
+
+		///<summary>
+		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("typeOfProblem")]
+		public IEnumerable<string> TypeOfProblem => ContactFormContent.GetTypeOfProblem(this);
+
+		///<summary>
+		/// displayForm: Wether or not to display the contact form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("displayForm")]
+		public bool DisplayForm => FormControl.GetDisplayForm(this);
 	}
 
 	/// <summary>Product Page</summary>
 	[PublishedModel("productPage")]
-	public partial class ProductPage : PublishedContentModel, ISEocontrol
+	public partial class ProductPage : PublishedContentModel, IContactFormContent, IFormControl, ISEocontrol
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -322,6 +406,41 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("productPageContent")]
 		public Newtonsoft.Json.Linq.JToken ProductPageContent => this.Value<Newtonsoft.Json.Linq.JToken>("productPageContent");
+
+		///<summary>
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("receievingEmail")]
+		public string ReceievingEmail => ContactFormContent.GetReceievingEmail(this);
+
+		///<summary>
+		/// Sending Email: Enter the email from which the emails will appear to be sent from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("sendingEmail")]
+		public string SendingEmail => ContactFormContent.GetSendingEmail(this);
+
+		///<summary>
+		/// Service Department: Enter the list of the different Service Departments
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("serviceDepartment")]
+		public IEnumerable<string> ServiceDepartment => ContactFormContent.GetServiceDepartment(this);
+
+		///<summary>
+		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("typeOfProblem")]
+		public IEnumerable<string> TypeOfProblem => ContactFormContent.GetTypeOfProblem(this);
+
+		///<summary>
+		/// displayForm: Wether or not to display the contact form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("displayForm")]
+		public bool DisplayForm => FormControl.GetDisplayForm(this);
 
 		///<summary>
 		/// Meta Description: Enter the meta description for this page, one to two rows
@@ -473,6 +592,143 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("webpageLink")]
 		public Umbraco.Web.Models.Link WebpageLink => this.Value<Umbraco.Web.Models.Link>("webpageLink");
+	}
+
+	// Mixin Content Type with alias "formControl"
+	/// <summary>Form Control</summary>
+	public partial interface IFormControl : IPublishedContent
+	{
+		/// <summary>displayForm</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		bool DisplayForm { get; }
+	}
+
+	/// <summary>Form Control</summary>
+	[PublishedModel("formControl")]
+	public partial class FormControl : PublishedContentModel, IFormControl
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "formControl";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FormControl, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public FormControl(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// displayForm: Wether or not to display the contact form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("displayForm")]
+		public bool DisplayForm => GetDisplayForm(this);
+
+		/// <summary>Static getter for displayForm</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static bool GetDisplayForm(IFormControl that) => that.Value<bool>("displayForm");
+	}
+
+	// Mixin Content Type with alias "contactFormContent"
+	/// <summary>Contact Form Content</summary>
+	public partial interface IContactFormContent : IPublishedContent
+	{
+		/// <summary>Receieving Email</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		string ReceievingEmail { get; }
+
+		/// <summary>Sending Email</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		string SendingEmail { get; }
+
+		/// <summary>Service Department</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		IEnumerable<string> ServiceDepartment { get; }
+
+		/// <summary>typeOfProblem</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		IEnumerable<string> TypeOfProblem { get; }
+	}
+
+	/// <summary>Contact Form Content</summary>
+	[PublishedModel("contactFormContent")]
+	public partial class ContactFormContent : PublishedContentModel, IContactFormContent
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "contactFormContent";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ContactFormContent, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public ContactFormContent(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("receievingEmail")]
+		public string ReceievingEmail => GetReceievingEmail(this);
+
+		/// <summary>Static getter for Receieving Email</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static string GetReceievingEmail(IContactFormContent that) => that.Value<string>("receievingEmail");
+
+		///<summary>
+		/// Sending Email: Enter the email from which the emails will appear to be sent from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("sendingEmail")]
+		public string SendingEmail => GetSendingEmail(this);
+
+		/// <summary>Static getter for Sending Email</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static string GetSendingEmail(IContactFormContent that) => that.Value<string>("sendingEmail");
+
+		///<summary>
+		/// Service Department: Enter the list of the different Service Departments
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("serviceDepartment")]
+		public IEnumerable<string> ServiceDepartment => GetServiceDepartment(this);
+
+		/// <summary>Static getter for Service Department</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IEnumerable<string> GetServiceDepartment(IContactFormContent that) => that.Value<IEnumerable<string>>("serviceDepartment");
+
+		///<summary>
+		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("typeOfProblem")]
+		public IEnumerable<string> TypeOfProblem => GetTypeOfProblem(this);
+
+		/// <summary>Static getter for typeOfProblem</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IEnumerable<string> GetTypeOfProblem(IContactFormContent that) => that.Value<IEnumerable<string>>("typeOfProblem");
 	}
 
 	/// <summary>Folder</summary>

@@ -445,6 +445,12 @@
     <Content Include="UI\img\0.jpg" />
     <Content Include="UI\img\50-Beautiful.jpg" />
     <Content Include="UI\img\logo.png" />
+    <Content Include="UI\scss\_contactFrom.css">
+      <DependentUpon>_contactFrom.scss</DependentUpon>
+    </Content>
+    <Content Include="UI\scss\_contactFrom.min.css">
+      <DependentUpon>_contactFrom.css</DependentUpon>
+    </Content>
     <Content Include="UI\scss\_faq.css">
       <DependentUpon>_faq.scss</DependentUpon>
     </Content>
@@ -533,6 +539,7 @@
     <Content Include="Views\Partials\Contact\_Contact.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="UI\scss\_contactFrom.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

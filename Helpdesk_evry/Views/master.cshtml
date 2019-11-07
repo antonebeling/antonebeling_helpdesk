@@ -11,21 +11,25 @@
 <html lang="en">
 <head>
 	@{
-		var title = String.Empty;
-		title = Model.Value<string>("websiteTitle", 
-			fallback: Fallback.ToDefaultValue, defaultValue: homePage.Value<string>("websiteTitleHome"));
+        var title = String.Empty;
+        title = Model.Value<string>("websiteTitle",
+            fallback: Fallback.ToDefaultValue, defaultValue: homePage.Value<string>("websiteTitleHome"));
 
-		var description = String.Empty;
-		description = Model.Value<string>("metaDescription",
-			fallback: Fallback.ToDefaultValue, defaultValue: homePage.Value<string>("metaDescriptionHome"));
+        var description = String.Empty;
+        description = Model.Value<string>("metaDescription",
+            fallback: Fallback.ToDefaultValue, defaultValue: homePage.Value<string>("metaDescriptionHome"));
+
+        var temp = Model.Value<string[]>("metaKeywords",
+            fallback: Fallback.ToDefaultValue, defaultValue: homePage.Value<string[]>("metaKeywordsHome"));
+
+        var keywords = String.Join(",", temp);
 	}
-
-	<!-- TODO: meta keywords from Umbraco -->
-
+    
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="@description">
-	<title>@(title)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="@description" />
+    <meta name="keywords" content="@keywords" />
+	<title>@title</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 	@{
@@ -44,115 +48,136 @@
 </head>
 <body>
 
-	
-<!-- Navigation -->
-<nav class="navbar navbar-expand-md navbar-light pt-0 pb-0">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="@homePage.Url">
-			@{
-				var brandIcon = homePage.Value<IPublishedContent>("brandIcon");
-				if(brandIcon != null)
-				{
-					<img src="@brandIcon.Url?width=100px"/>;
-				}
-			}
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto">
-				@{
-					var productSelection = homePage
-									.ChildrenOfType("productPage")
-									.Where(x => x.IsVisible())
-									.OrderByDescending(x => x.SortOrder);
 
-					var faqSelection = homePage
-    								.ChildrenOfType("fAQPage")
-    								.Where(x => x.IsVisible());
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-light pt-0 pb-0">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="@homePage.Url">
+                @{
+                    var brandIcon = homePage.Value<IPublishedContent>("brandIcon");
+                    if (brandIcon != null)
+                    {
+                        <img src="@brandIcon.Url?width=100px" />;
+                    }
+                }
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    @{
+                        var productSelection = homePage
+                                        .ChildrenOfType("productPage")
+                                        .Where(x => x.IsVisible())
+                                        .OrderByDescending(x => x.SortOrder);
 
-					foreach (var item in faqSelection)
-					{
-						<li class="nav-item padding-right">
-							<a class="nav-link" href="@item.Url">@item.Name</a>
-						</li>;
-					}
+                        var faqSelection = homePage
+                                        .ChildrenOfType("fAQPage")
+                                        .Where(x => x.IsVisible());
 
-					foreach (var item in productSelection)
-					{
-						<li class="nav-item padding-right">
-							<a class="nav-link" href="@item.Url">@item.Name</a>
-						</li>;
-					}
-				}
-			</ul>
-		</div>
-	</div>
-</nav>
+                        foreach (var item in faqSelection)
+                        {
+                            <li class="nav-item padding-right">
+                                <a class="nav-link" href="@item.Url">@item.Name</a>
+                            </li>
+;
+                        }
 
-<div class="container pl-0">
-	<div class="row">
-		<div class="col-8">
-			@(Umbraco.RenderMacro("Breadcrumb"))
-		</div>
-	</div>
-</div>
+                        foreach (var item in productSelection)
+                        {
+                            <li class="nav-item padding-right">
+                                <a class="nav-link" href="@item.Url">@item.Name</a>
+                            </li>
+;
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-
-
-@RenderBody()
+    <div class="container pl-0">
+        <div class="row">
+            <div class="col-8">
+                @(Umbraco.RenderMacro("Breadcrumb"))
+            </div>
+        </div>
+    </div>
 
 
 
-<!-- Footer -->
-<footer>
-	<div class="container-fluid padding-all">
-		<div class="row text-center">
-			<div class="col-md-6">
-				<ul class="hours-ul">
-					<h4>Öppettider</h4>
-					<hr class="hr-60">
-					@{
-						if(homePage.HasValue("informationHours")){
-							<div class="width-60 mx-auto">@(homePage.Value("informationHours"))</div>;
-						}
-					}
-					<hr class="hr-60">
-					@{
-						if(homePage.Value<String[]>("businessHours").Length > 0){
-							foreach(var item in homePage.Value<String[]>("businessHours")){
-								<li>@item</li>;
-							}	
-						}
-					}
-					<hr class="hr-60">
-				</ul>
-			</div>
-			<div class="col-md-6">
-				<ul class="support-ul">
-					<h4>Online Support</h4>
-					<hr class="hr-60">
-					<strong>Vi kan kontaktas via:</strong>
-					@{
-						var link = homePage.Value<Link>("supportformLink");
-						if(link != null)
-						{
-							<li><i class="fas fa-file-alt margin-right"></i><a href="@link.Url" target="@link.Target">Supportformulär</a></li>;
-						}
-						if(homePage.HasValue("contactPhone")){
-							<li><i class="fas fa-phone margin-right"></i>Telefon: <a href="tel:@(homePage.Value("contactPhone"))">@(homePage.Value("contactPhone"))</a></li>;
-						}
-						if(homePage.HasValue("contactEmail")){
-							<li><i class="fas fa-envelope margin-right"></i>Email: <a href="mailto:@(homePage.Value("contactEmail"))">@(homePage.Value("contactEmail"))</a></li>;
-						}
-					}
-					<hr class="hr-60">
-				</ul>
-			</div>
-		</div>
-	</div>
-</footer>
+    @RenderBody()
+
+
+
+    <!-- Footer -->
+    @{
+        if (Model.Value<bool>("displayForm")) {
+            <div class="container">
+                @{ Html.RenderAction("RenderForm", "ContactSurface", new { pageId = Model.Id });}
+            </div>
+        }
+    }
+
+
+    <footer>
+        <div class="container-fluid padding-all">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <ul class="hours-ul">
+                        <h4>Öppettider</h4>
+                        <hr class="hr-80">
+                        @{
+                            if (homePage.HasValue("informationHours"))
+                            {
+                                <div class="width-70 mx-auto">@(homePage.Value("informationHours"))</div>
+;
+                            }
+                        }
+                        <hr class="hr-80">
+                        @{
+                            if (homePage.Value<String[]>("businessHours").Length > 0)
+                            {
+                                foreach (var item in homePage.Value<String[]>("businessHours"))
+                                {
+                                    <li>@item</li>
+;
+                                }
+                            }
+                        }
+                        <hr class="hr-80">
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="support-ul">
+                        <h4>Online Support</h4>
+                        <hr class="hr-80">
+                        <strong>Vi kan kontaktas via:</strong>
+                        @{
+                            var link = homePage.Value<Link>("supportformLink");
+                            if (link != null)
+                            {
+                                <li><i class="fas fa-file-alt margin-right"></i><a href="@link.Url" target="@link.Target">Kontaktformulär</a></li>
+;
+                            }
+                            if (homePage.HasValue("contactPhone"))
+                            {
+                                <li><i class="fas fa-phone margin-right"></i>Telefon: <a href="tel:@(homePage.Value("contactPhone"))">@(homePage.Value("contactPhone"))</a></li>
+;
+                            }
+                            if (homePage.HasValue("contactEmail"))
+                            {
+                                <li><i class="fas fa-envelope margin-right"></i>Email: <a href="mailto:@(homePage.Value("contactEmail"))">@(homePage.Value("contactEmail"))</a></li>
+;
+                            }
+                        }
+                        <hr class="hr-80">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

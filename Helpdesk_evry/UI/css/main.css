@@ -1,8 +1,8 @@
-﻿.hr-60 {
-  width: 60%; }
+﻿.hr-80 {
+  width: 80%; }
 
-.width-60 {
-  width: 60%; }
+.width-70 {
+  width: 70%; }
 
 .margin-right {
   margin-right: 0.6rem; }
@@ -50,7 +50,8 @@ nav {
   background-color: #d4e8fc; }
   nav .navbar {
     padding-top: 0;
-    padding-bottom: 0; }
+    padding-bottom: 0;
+    height: 20px; }
   nav li {
     font-size: 1.4rem; }
 
@@ -110,7 +111,8 @@ footer {
       .product-item .product-item-icon {
         display: none; }
       .product-item h3 {
-        font-size: 1.2rem; }
+        font-size: 1.5rem;
+        margin-top: 1rem; }
       .product-item .cardDesc .lead {
         display: none; } }
 
@@ -137,7 +139,29 @@ footer {
   padding: 1rem; }
 
 .informationTextFaq {
-  font-size: 1.1rem; }
+  font-size: 1.1rem;
+  padding: 1rem; }
+
+.FAQtitle {
+  padding-left: 1rem; }
+
+.contact-form {
+  /*border: 1px solid black;*/
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #95cbfa, transparent) 1 100%;
+  padding: 1rem; }
+
+@media (min-width: 772px) {
+  .contact-form {
+    margin-left: 3rem;
+    margin-right: 3rem; } }
+
+input:valid {
+  border: 2px solid #b6f5be; }
+
+input:not([value=""]):not(:focus):invalid {
+  border: 2px solid #ef7272; }
 
 /*
 Extra small (xs) devices (portrait phones, less than 576px)

@@ -4,9 +4,11 @@
 @{
 	Layout = "master.cshtml";
 	var homePage = Model.Root();
-}
+    }
+
+
 <div class="container">
-	<div class="row">
+	<div class="row FAQtitle">
 		<h2>@(Model.Value<string>("title"))</h2>
 	</div>
 </div>
@@ -29,12 +31,7 @@
 				.OrderBy(x => x.Id);
 				
 				@(Html.Partial("Faq/_AllFaq", selection))
-
 			}
 		</div>
 	</div>
 </section>
-
-<div class="container">
-    @{ Html.RenderAction("RenderForm", "ContactSurface");}
-</div>

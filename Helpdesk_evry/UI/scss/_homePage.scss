@@ -8,6 +8,11 @@ nav{
         font-size: 1.4rem;
     }
     background-color: $light-passive-bg;
+
+    .login-div{
+        border-left: 1px solid grey;
+        cursor: pointer;
+    }
 }
 
 .image-fitting-div{

@@ -479,7 +479,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ContactSurfaceController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -540,6 +542,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="UI\scss\_contactFrom.scss" />
+    <Content Include="Views\Partials\Login\_Login.cshtml" />
+    <Content Include="Views\Partials\Login\_Logout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -553,6 +557,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UI\js\" />
+    <Folder Include="Views\Member\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

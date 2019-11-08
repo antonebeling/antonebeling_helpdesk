@@ -23,6 +23,8 @@
             fallback: Fallback.ToDefaultValue, defaultValue: homePage.Value<string[]>("metaKeywordsHome"));
 
         var keywords = String.Join(",", temp);
+
+        bool show = true;  
 	}
     
 	<meta charset="utf-8">
@@ -81,7 +83,7 @@
                             <li class="nav-item padding-right">
                                 <a class="nav-link" href="@item.Url">@item.Name</a>
                             </li>
-;
+                            ;
                         }
 
                         foreach (var item in productSelection)
@@ -89,13 +91,52 @@
                             <li class="nav-item padding-right">
                                 <a class="nav-link" href="@item.Url">@item.Name</a>
                             </li>
-;
+                            ;
+                        }
+                    }
+
+                    @*<li class="nav-item padding-right">
+                        <div class="login-div" data-toggle="modal" data-target="#exampleModal">
+                            @{ Html.RenderAction("RenderLogin", "Member");}
+                        </div>
+                    </li>*@
+
+
+                    @{
+                        if (show == true)
+                        {
+                            <li class="nav-item padding-right">
+                                <div class="login-div" data-toggle="modal" data-target="#exampleModal">
+                                    <a class="nav-link">Login</a>
+                                </div>
+                            </li>
                         }
                     }
                 </ul>
             </div>
         </div>
     </nav>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @{ Html.RenderAction("RenderLogin", "Member");}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    @*<button type="button" class="btn btn-primary">Save Changes</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="container pl-0">
         <div class="row">
@@ -111,9 +152,11 @@
 
 
 
-    <!-- Footer -->
+    <!-- Form -->
+
     @{
-        if (Model.Value<bool>("displayForm")) {
+        if (Model.Value<bool>("displayForm"))
+        {
             <div class="container">
                 @{ Html.RenderAction("RenderForm", "ContactSurface", new { pageId = Model.Id });}
             </div>
@@ -121,6 +164,7 @@
     }
 
 
+    <!-- Footer -->
     <footer>
         <div class="container-fluid padding-all">
             <div class="row text-center">
@@ -132,7 +176,7 @@
                             if (homePage.HasValue("informationHours"))
                             {
                                 <div class="width-70 mx-auto">@(homePage.Value("informationHours"))</div>
-;
+                                ;
                             }
                         }
                         <hr class="hr-80">
@@ -142,7 +186,7 @@
                                 foreach (var item in homePage.Value<String[]>("businessHours"))
                                 {
                                     <li>@item</li>
-;
+                                    ;
                                 }
                             }
                         }
@@ -159,17 +203,17 @@
                             if (link != null)
                             {
                                 <li><i class="fas fa-file-alt margin-right"></i><a href="@link.Url" target="@link.Target">Kontaktformulär</a></li>
-;
+                                ;
                             }
                             if (homePage.HasValue("contactPhone"))
                             {
                                 <li><i class="fas fa-phone margin-right"></i>Telefon: <a href="tel:@(homePage.Value("contactPhone"))">@(homePage.Value("contactPhone"))</a></li>
-;
+                                ;
                             }
                             if (homePage.HasValue("contactEmail"))
                             {
                                 <li><i class="fas fa-envelope margin-right"></i>Email: <a href="mailto:@(homePage.Value("contactEmail"))">@(homePage.Value("contactEmail"))</a></li>
-;
+                                ;
                             }
                         }
                         <hr class="hr-80">

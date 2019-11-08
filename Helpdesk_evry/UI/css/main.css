@@ -54,6 +54,9 @@ nav {
     height: 20px; }
   nav li {
     font-size: 1.4rem; }
+  nav .login-div {
+    border-left: 1px solid grey;
+    cursor: pointer; }
 
 .image-fitting-div {
   text-align: center;

@@ -20,7 +20,7 @@
     
     <div class="pb-3">
         @*@Html.LabelFor(m => m.Password)*@
-        @Html.TextBoxFor(m => m.Password, new
+        @Html.PasswordFor(m => m.Password, new
         {
             placeholder = "Password",
                    @class = "form-control",
@@ -30,7 +30,7 @@
         })
     </div>
         @Html.ValidationSummary()
-        <button class="btn btn-primary" name="login" type="submit">Login</button>
+        <button class="btn btn-dark" name="login" type="submit">Login</button>
    
     }
 }

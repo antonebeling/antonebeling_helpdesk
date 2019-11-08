@@ -55,8 +55,10 @@ nav {
   nav li {
     font-size: 1.4rem; }
   nav .login-div {
-    border-left: 1px solid grey;
-    cursor: pointer; }
+    /*border-left: 1px solid grey;*/ }
+    nav .login-div .nav-link {
+      color: white !important;
+      font-size: 1rem; }
 
 .image-fitting-div {
   text-align: center;

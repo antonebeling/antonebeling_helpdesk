@@ -95,22 +95,29 @@
                         }
                     }
 
-                    @*<li class="nav-item padding-right">
-                        <div class="login-div" data-toggle="modal" data-target="#exampleModal">
-                            @{ Html.RenderAction("RenderLogin", "Member");}
-                        </div>
-                    </li>*@
-
 
                     @{
-                        if (show == true)
+                        if (!Umbraco.MemberIsLoggedOn())
                         {
                             <li class="nav-item padding-right">
-                                <div class="login-div" data-toggle="modal" data-target="#exampleModal">
-                                    <a class="nav-link">Login</a>
+                                <div class="login-div btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+                                    <a class="nav-link">Kundportal</a>
                                 </div>
                             </li>
                         }
+                        else
+                        {
+                            <li class="nav-item padding-right">
+                                <div class="login-div btn btn-dark">
+                                    <a class="nav-link" href="/dynamaster/">Kundportal</a>
+                                </div>
+                            </li>
+                        }
+
+
+                        <!--TODO Standard Page, ErrorPage LoginPage,
+                            Portalsida, -->
+
                     }
                 </ul>
             </div>
@@ -162,6 +169,8 @@
             </div>
         }
     }
+
+    @{ Html.RenderAction("RenderLogin", "Member");}
 
 
     <!-- Footer -->

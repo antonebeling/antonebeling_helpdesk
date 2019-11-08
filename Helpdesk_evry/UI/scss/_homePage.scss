@@ -13,8 +13,18 @@ nav{
 .image-fitting-div{
     text-align: center;
     @media(min-width: 992px){
-        height: 400px;
+        height: 600px;
         overflow: hidden;
     }
+    padding:0;
 }
 
+.start-image{
+    padding: 1rem;
+    padding-bottom:2rem;
+    @media(max-width: 574px){
+        padding: 0;
+        padding-bottom: 1rem;
+       
+    }
+}

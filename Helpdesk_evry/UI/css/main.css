@@ -56,11 +56,20 @@ nav {
     font-size: 1.4rem; }
 
 .image-fitting-div {
-  text-align: center; }
+  text-align: center;
+  padding: 0; }
   @media (min-width: 992px) {
     .image-fitting-div {
-      height: 400px;
+      height: 600px;
       overflow: hidden; } }
+
+.start-image {
+  padding: 1rem;
+  padding-bottom: 2rem; }
+  @media (max-width: 574px) {
+    .start-image {
+      padding: 0;
+      padding-bottom: 1rem; } }
 
 .fa-file-alt,
 .fa-envelope,
@@ -103,8 +112,8 @@ footer {
       height: 18rem; } }
   @media (max-width: 574px) {
     .product-item {
-      height: 5rem;
-      padding-top: 0.5rem;
+      height: 4rem;
+      padding-top: 0.05rem;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
       text-align: center; }

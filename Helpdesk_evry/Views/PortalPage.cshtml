@@ -2,4 +2,17 @@
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
 	Layout = "master.cshtml";
+ 	var homePage = Model.Root();
+
 }
+
+<section class="userSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @{ Html.RenderAction("RenderLogin", "Member");}
+
+            </div>
+        </div>
+    </div>
+</section>

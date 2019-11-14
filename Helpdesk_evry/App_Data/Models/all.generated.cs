@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "7b79711931f635df")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "22d95e573972d83f")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 
 // FILE: models.generated.cs
@@ -781,6 +781,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Login message: enter the message that is shown when the user tries to enter a page that requires the user the logged in, when hes not
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("loginMessage")]
+		public IHtmlString LoginMessage => this.Value<IHtmlString>("loginMessage");
 	}
 
 	/// <summary>ErrorPage</summary>
@@ -807,6 +814,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Error Message: write what you want to be the error message when the user dont have permission to login
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("errorMessage")]
+		public IHtmlString ErrorMessage => this.Value<IHtmlString>("errorMessage");
 	}
 
 	/// <summary>PortalPage</summary>

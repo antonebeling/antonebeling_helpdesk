@@ -88,22 +88,31 @@
 
                         foreach (var item in productSelection)
                         {
-                            <li class="nav-item padding-right">
+                            <li class="nav-item padding-right ">
                                 <a class="nav-link" href="@item.Url">@item.Name</a>
                             </li>
                             ;
                         }
                     }
 
+                    <hr class="hr-80 d-block d-md-none" style="margin-bottom:0; margin-top:0;" />
 
                     @{
                         if (!Umbraco.MemberIsLoggedOn())
                         {
-                            <li class="nav-item padding-right">
-                                <div class="login-div btn btn-dark" data-toggle="modal" data-target="#exampleModal">
-                                    <a class="nav-link">Kundportal</a>
+                            
+                            <li class="nav-item">
+                                <div class="login-div-btn btn btn-dark d-none d-md-block" data-toggle="modal" data-target="#exampleModal" style="padding-bottom:0; padding-top:0;">
+                                    <a class="nav-link" style="font-size: 1.4rem">Kundportal</a>
                                 </div>
                             </li>
+                            
+                            <li class="nav-item">
+                                <div class="login-div d-block d-md-none" data-toggle="modal" data-target="#exampleModal">
+                                    <a class="nav-link" style="font-size: 1.3rem">Kundportal</a>
+                                </div>
+                            </li>
+                            
                         }
                         else
                         {
@@ -114,9 +123,7 @@
                             </li>
                         }
 
-
-                        <!--TODO Standard Page, ErrorPage LoginPage,
-                            Portalsida, -->
+                        <!--TODO Standard Page, ErrorPage LoginPage, Portalsida -->
 
                     }
                 </ul>
@@ -164,14 +171,12 @@
     @{
         if (Model.Value<bool>("displayForm"))
         {
+            <br />
             <div class="container">
                 @{ Html.RenderAction("RenderForm", "ContactSurface", new { pageId = Model.Id });}
             </div>
         }
     }
-
-    @{ Html.RenderAction("RenderLogin", "Member");}
-
 
     <!-- Footer -->
     <footer>
@@ -180,15 +185,14 @@
                 <div class="col-md-6">
                     <ul class="hours-ul">
                         <h4>Öppettider</h4>
-                        <hr class="hr-80">
+                        <hr class="hr-80" />
                         @{
                             if (homePage.HasValue("informationHours"))
                             {
-                                <div class="width-70 mx-auto">@(homePage.Value("informationHours"))</div>
-                                ;
+                                <div class="width-70 mx-auto">@(homePage.Value("informationHours"))</div>;
                             }
                         }
-                        <hr class="hr-80">
+                        <hr class="hr-80" />
                         @{
                             if (homePage.Value<String[]>("businessHours").Length > 0)
                             {
@@ -199,13 +203,13 @@
                                 }
                             }
                         }
-                        <hr class="hr-80">
+                        <hr class="hr-80" />
                     </ul>
                 </div>
                 <div class="col-md-6">
                     <ul class="support-ul">
                         <h4>Online Support</h4>
-                        <hr class="hr-80">
+                        <hr class="hr-80" />
                         <strong>Vi kan kontaktas via:</strong>
                         @{
                             var link = homePage.Value<Link>("supportformLink");

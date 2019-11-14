@@ -51,7 +51,7 @@ namespace Helpdesk_evry.Controllers
             TempData.Clear();
             Session.Clear();
             FormsAuthentication.SignOut();
-            return RedirectToCurrentUmbracoPage();
+            return Redirect("~/");
         }
     }
 }

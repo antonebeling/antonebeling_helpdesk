@@ -1,5 +1,23 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.LoginPage>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
 }
+
+
+
+<section class="userSection">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-6 pb-2">
+                @Model.Value("loginMessage")
+                @{
+                    if (!Umbraco.MemberIsLoggedOn())
+                    {
+                        Html.RenderAction("RenderLogin", "Member");
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>

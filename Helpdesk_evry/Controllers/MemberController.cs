@@ -30,7 +30,7 @@ namespace Helpdesk_evry.Controllers
                     }
                     else
                     {
-                        return Redirect("/login/");
+                        return Redirect("/user-portal/");
                     }
                 }
                 else

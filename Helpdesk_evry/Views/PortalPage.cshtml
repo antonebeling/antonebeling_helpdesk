@@ -13,6 +13,17 @@
                 @{ Html.RenderAction("RenderLogin", "Member");}
 
             </div>
+
+            <div class="col-12">
+                @{
+                    var roleList = System.Web.Security.Roles.GetRolesForUser(System.Web.Security.Membership.GetUser().UserName);
+
+                    foreach (var role in roleList)
+                    {
+                        <p>@role</p>
+                    }
+                }
+            </div>
         </div>
     </div>
 </section>

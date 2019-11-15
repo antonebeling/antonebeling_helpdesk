@@ -46,19 +46,29 @@
 .faqSection .card-body p {
   margin-bottom: 0; }
 
+.validation-summary-errors {
+  color: red; }
+  .validation-summary-errors ul {
+    list-style-type: none; }
+
 nav {
+  border-bottom: 0.5px solid #c1c1c1;
   background-color: #d4e8fc; }
   nav .navbar {
     padding-top: 0;
     padding-bottom: 0;
     height: 20px; }
   nav li {
-    font-size: 1.4rem; }
+    font-size: 1.3rem; }
   nav .login-div-btn {
-    /*border-left: 1px solid grey;*/ }
+    /*border-left: 1px solid grey;*/
+    border-radius: 1rem; }
     nav .login-div-btn .nav-link {
       color: white !important;
-      font-size: 1rem; }
+      font-size: 1.3rem; }
+
+.cards-header {
+  margin-bottom: 2rem; }
 
 .image-fitting-div {
   text-align: center;
@@ -178,6 +188,19 @@ input:valid {
 
 input:not([value=""]):not(:focus):invalid {
   border: 2px solid #ef7272; }
+
+.logout-btn {
+  border-radius: 1rem; }
+
+.btn {
+  font-size: 1.3rem; }
+
+.logout-btn-div {
+  padding-left: 2rem; }
+
+.text-logout {
+  line-height: 40px;
+  font-size: 1.5rem; }
 
 /*
 Extra small (xs) devices (portrait phones, less than 576px)

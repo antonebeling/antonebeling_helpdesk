@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "22d95e573972d83f")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d0d4d73923b20d49")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -224,6 +224,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("boxList")]
 		public IEnumerable<StartpageBox> BoxList => this.Value<IEnumerable<StartpageBox>>("boxList");
+
+		///<summary>
+		/// boxTitle: Enter the title to be added over the product boxes
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("boxTitle")]
+		public string BoxTitle => this.Value<string>("boxTitle");
 
 		///<summary>
 		/// Band Icon: Upload a brand icon
@@ -739,6 +746,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// InformationText: Enter some information text regarding the webpage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("informationText")]
+		public IHtmlString InformationText => this.Value<IHtmlString>("informationText");
 	}
 
 	/// <summary>LoginPage</summary>

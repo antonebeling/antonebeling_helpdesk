@@ -52,14 +52,14 @@
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-md navbar-light pt-0 pb-0">
+    <nav class="navbar navbar-expand-md navbar-light sticky-top pt-0 pb-0">
         <div class="container-fluid">
             <a class="navbar-brand" href="@homePage.Url">
                 @{
                     var brandIcon = homePage.Value<IPublishedContent>("brandIcon");
                     if (brandIcon != null)
                     {
-                        <img src="@brandIcon.Url?width=100px" />;
+                        <img src="@brandIcon.Url?width=100px" />
                     }
                 }
             </a>
@@ -100,31 +100,34 @@
                     @{
                         if (!Umbraco.MemberIsLoggedOn())
                         {
-                            
+
                             <li class="nav-item">
                                 <div class="login-div-btn btn btn-dark d-none d-md-block" data-toggle="modal" data-target="#exampleModal" style="padding-bottom:0; padding-top:0;">
-                                    <a class="nav-link" style="font-size: 1.4rem">Kundportal</a>
+                                    <a class="nav-link">Kundportal</a>
                                 </div>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <div class="login-div d-block d-md-none" data-toggle="modal" data-target="#exampleModal">
-                                    <a class="nav-link" style="font-size: 1.3rem">Kundportal</a>
+                                    <a class="nav-link">Kundportal</a>
                                 </div>
                             </li>
-                            
+
                         }
                         else
                         {
-                            <li class="nav-item padding-right">
-                                <div class="login-div btn btn-dark">
+                            <li class="nav-item">
+                                <div class="login-div-btn btn btn-dark d-none d-md-block" style="padding-bottom:0; padding-top:0;">
+                                    <a class="nav-link" href="/user-portal/">Kundportal</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <div class="login-div d-block d-md-none">
                                     <a class="nav-link" href="/user-portal/">Kundportal</a>
                                 </div>
                             </li>
                         }
-
-                        <!--TODO Standard Page, ErrorPage LoginPage, Portalsida -->
-
                     }
                 </ul>
             </div>

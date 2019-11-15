@@ -8,10 +8,21 @@
 
         @Html.AntiForgeryToken()
         var myUser = System.Web.Security.Membership.GetUser();
-        if(myUser != null)
+        if (myUser != null)
         {
-            <p><strong>Logged in as </strong><span>@myUser.UserName</span></p>
-            <button class="btn btn-dark" name="login" type="submit"><span>Logout </span><i class="fa fa-arrow-right"></i></button>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="text-logout">
+                        <p><strong>Inloggan som </strong><span>@myUser.UserName</span></p>
+                    </div>
+                    <div class="logout-btn-div">
+                        <button class="btn btn-dark logout-btn" name="login" type="submit"><span>Logout </span><i class="fa fa-sign-out-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+            @*<p><strong>Logged in as </strong><span>@myUser.UserName</span></p>
+            <button class="btn btn-dark" name="login" type="submit"><span>Logout </span><i class="fa fa-sign-out-alt"></i></button>*@
         }
     }
 }
+

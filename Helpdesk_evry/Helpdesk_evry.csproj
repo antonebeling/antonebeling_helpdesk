@@ -544,10 +544,8 @@
     <Content Include="UI\scss\_contactFrom.scss" />
     <Content Include="Views\Partials\Login\_Login.cshtml" />
     <Content Include="Views\Partials\Login\_Logout.cshtml" />
-    <Content Include="Views\LoginPage.cshtml" />
     <Content Include="Views\PortalPage.cshtml" />
     <Content Include="Views\StandardPage.cshtml" />
-    <Content Include="Views\ErrorPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

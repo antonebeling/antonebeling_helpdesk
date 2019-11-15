@@ -34,5 +34,9 @@
   {
     "outputFile": "UI/scss/_contactFrom.css",
     "inputFile": "UI/scss/_contactFrom.scss"
+  },
+  {
+    "outputFile": "UI/scss/_user-portal.css",
+    "inputFile": "UI/scss/_user-portal.scss"
   }
 ]

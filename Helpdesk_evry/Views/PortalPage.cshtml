@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.PortalPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+ 	var homePage = Model.Root();
+
+}
+
+<section class="userSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @{ Html.RenderAction("RenderLogin", "Member");}
+
+            </div>
+
+            <div class="col-12">
+                @{
+                    var roleList = System.Web.Security.Roles.GetRolesForUser(System.Web.Security.Membership.GetUser().UserName);
+
+                    foreach (var role in roleList)
+                    {
+                        <p>@role</p>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>

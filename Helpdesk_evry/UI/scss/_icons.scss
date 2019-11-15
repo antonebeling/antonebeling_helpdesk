@@ -1,18 +1,20 @@
-.product-item{
-    .product-item-icon{
+.product-item {
+    .product-item-icon {
         height: 7rem;
-        .product-item-iconColor{
+        padding-top: 1.5rem;
+
+        .product-item-iconColor {
             color: $standard-color;
             font-size: 4rem;
             transition: 500ms;
         }
-        
     }
-    &:hover{
-        .product-item-iconColor{
+
+    &:hover {
+        .product-item-iconColor {
             font-size: 4.5rem;
             color: $hover-color;
-            transition: 200ms;   
+            transition: 200ms;
         }
     }
 
@@ -22,29 +24,28 @@
     padding-right: 0.5rem;
     padding-left: 0.5rem;
 
-    .lead{
+    .lead {
         font-size: 1.2rem;
     }
 
-    @media(min-width: 768px){
+    @media(min-width: 768px) {
         height: 18rem;
     }
 
-    @media(max-width: 574px){
-        height: 4rem;
-        padding-top: 0.05rem;
-        padding-left: 0.5rem;
+    @media(max-width: 574px) {
+        height: 12rem;
+        /*padding-left: 0.5rem;
         padding-right: 0.5rem;
         text-align: center;
         .product-item-icon{
-            display: none;
+            display: block;
         }
         h3{
             font-size: 1.5rem;
             margin-top:1rem;
-        }
-        .cardDesc{
-            .lead{
+        }*/
+        .cardDesc {
+            .lead {
                 display: none;
             }
         }

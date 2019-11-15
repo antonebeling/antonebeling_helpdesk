@@ -45,3 +45,8 @@
 
 .faqSection .card-body p {
   margin-bottom: 0; }
+
+.validation-summary-errors {
+  color: red; }
+  .validation-summary-errors ul {
+    list-style-type: none; }

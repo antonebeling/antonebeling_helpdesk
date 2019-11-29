@@ -61,7 +61,6 @@ nav {
   nav li {
     font-size: 1.3rem; }
   nav .login-div-btn {
-    /*border-left: 1px solid grey;*/
     border-radius: 1rem; }
     nav .login-div-btn .nav-link {
       color: white !important;
@@ -184,12 +183,15 @@ footer {
     margin-right: 3rem; } }
 
 input:valid {
-  border: 2px solid #b6f5be; }
+  border: 2px solid #57e669; }
 
 input:not([value=""]):not(:focus):invalid {
   border: 2px solid #ef7272; }
 
 .logout-btn {
+  border-radius: 1rem; }
+
+.login-btn {
   border-radius: 1rem; }
 
 .btn {
@@ -201,6 +203,19 @@ input:not([value=""]):not(:focus):invalid {
 .text-logout {
   line-height: 40px;
   font-size: 1.5rem; }
+
+.manual-box {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  font-weight: 400;
+  padding: .375rem .75rem;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.5;
+  font-size: 1.5rem; }
+  .manual-box .manual-header {
+    text-align: center; }
 
 /*
 Extra small (xs) devices (portrait phones, less than 576px)

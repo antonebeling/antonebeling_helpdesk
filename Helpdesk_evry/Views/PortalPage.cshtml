@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12">
                 @{ Html.RenderAction("RenderLogin", "Member");}
-
+                <hr class="hr-80" />
             </div>
 
             <div class="col-12">
@@ -20,7 +20,17 @@
 
                     foreach (var role in roleList)
                     {
-                        <p>@role</p>
+                        <div class="manual-box col-4" style="border: 1px solid gray; background-color:#d4e8fc">
+                            <div class="manual-header">
+                                <p>@role</p>
+                                <hr class="hr-80" />
+                            </div>
+                            <div clas="manual-content" style="height: 15rem">
+                                <ul>                                   
+                                    <li>hejsan</li>
+                                </ul>
+                            </div>
+                        </div>
                     }
                 }
             </div>

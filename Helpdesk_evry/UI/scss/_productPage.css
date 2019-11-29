@@ -1,19 +1,20 @@
-﻿.informationGrid img {
-  max-height: 100%;
-  text-align: center;
-  max-width: 100%; }
-
-.informationGrid .caption {
-  font-style: italic; }
-
-.informationGrid .column {
-  padding-left: 1rem;
-  padding-right: 1rem; }
+﻿.informationGrid {
+  font-weight: 400; }
+  .informationGrid img {
+    max-height: 100%;
+    text-align: center;
+    max-width: 100%; }
+  .informationGrid .caption {
+    font-style: italic; }
+  .informationGrid .column {
+    padding-left: 1rem;
+    padding-right: 1rem; }
 
 .faqSection h3 {
   padding: 1rem; }
 
 .documents {
+  padding-top: 0.5rem;
   border: 1px solid lightgray;
   font-size: 1.2rem;
   font-weight: 300;
@@ -24,4 +25,9 @@
   .documents ul {
     color: gray; }
   .documents a {
-    color: gray; }
+    /*color: gray;*/ }
+  .documents p {
+    padding-right: 0.5rem; }
+    @media (max-width: 768px) {
+      .documents p {
+        padding-left: 0.5rem; } }

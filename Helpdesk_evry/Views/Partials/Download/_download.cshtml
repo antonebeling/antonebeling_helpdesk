@@ -1,0 +1,25 @@
+﻿@using Umbraco.Web.Models
+@model IEnumerable<IPublishedContent>
+
+
+
+<div class="col-md-6">
+    <ul>
+        @{
+        foreach (var item in Model)
+        {
+            var name = item.Value<string>("downloadItemName");
+            var link = item.Value<Link>("downloadItemLink");
+            <li>
+                <a href="@link.Url" download>@name</a>
+            </li>
+            }
+         }
+    </ul>
+</div>
+
+
+
+
+
+

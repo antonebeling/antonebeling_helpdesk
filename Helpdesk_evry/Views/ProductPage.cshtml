@@ -9,29 +9,37 @@
     var FAQselection = Model.ChildrenOfType("fAQItem")
         .Where(x => x.IsVisible())
         .OrderBy(x => x.Id);
+
+    var downloadSelection = Model.ChildrenOfType("downloadItem")
+        .Where(x => x.IsVisible())
+        .OrderBy(x => x.Id);
 }
 
 <div class="informationGrid margin-auto padding-bottom">
     @(Html.GetGridHtml(Model, "productPageContent"))
 </div>
 
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
+
+@{if (downloadSelection != null && downloadSelection.Any())
+    {
+        <section>
+            <div class="container">
                 <div class="documents">
-                    <h3 style="">Manualer</h3>
-                    <hr class="hr-80" />
-                    <ul>
-                        <li>
-                            <a href="~/UI/img/logo.png" download>test</a>
-                        </li>
-                    </ul>
+                    <div class="row">
+                        <h3 class="col-12" style="">Manualer</h3>
+                        <hr class="hr-80" />
+
+                        @Html.Partial("Download/_download", downloadSelection)
+
+                        <div class="col-md-6">
+                            <p>@Model.Value("downloadText")</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+    }
+}
 
 <section class="faqSection">
     <div class="container">
@@ -40,7 +48,7 @@
                 if (FAQselection != null && FAQselection.Any())
                 {
                     <h3>Svar på de vanligaste @Model.Name frågorna vi får:</h3>
-                    
+
                     @Html.Partial("Faq/_FaqCategory", FAQselection);
                 }
             }

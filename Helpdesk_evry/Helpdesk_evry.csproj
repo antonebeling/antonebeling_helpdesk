@@ -553,6 +553,7 @@
     <Content Include="Views\PortalPage.cshtml" />
     <Content Include="Views\StandardPage.cshtml" />
     <Content Include="UI\scss\_user-portal.scss" />
+    <Content Include="Views\Partials\Download\_download.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

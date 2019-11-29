@@ -2,7 +2,10 @@
 
 .logout-btn {
     border-radius: 1rem;
-    
+}
+
+.login-btn{
+    border-radius: 1rem;
 }
 .btn {
     font-size: 1.3rem;
@@ -15,4 +18,22 @@
 .text-logout {
     line-height: 40px;
     font-size: 1.5rem;
+}
+
+.manual-box{
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-weight: 400;
+    padding: .375rem .75rem;
+    white-space: nowrap;
+    vertical-align: middle;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    .manual-header{
+        text-align:center;
+    }
+    .manual-content{
+
+    }
 }

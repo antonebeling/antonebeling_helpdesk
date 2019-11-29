@@ -469,6 +469,12 @@
     <Content Include="UI\scss\_productPage.min.css">
       <DependentUpon>_productPage.css</DependentUpon>
     </Content>
+    <Content Include="UI\scss\_user-portal.css">
+      <DependentUpon>_user-portal.scss</DependentUpon>
+    </Content>
+    <Content Include="UI\scss\_user-portal.min.css">
+      <DependentUpon>_user-portal.css</DependentUpon>
+    </Content>
     <Content Include="UI\scss\_variables.css">
       <DependentUpon>_variables.scss</DependentUpon>
     </Content>
@@ -546,6 +552,7 @@
     <Content Include="Views\Partials\Login\_Logout.cshtml" />
     <Content Include="Views\PortalPage.cshtml" />
     <Content Include="Views\StandardPage.cshtml" />
+    <Content Include="UI\scss\_user-portal.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

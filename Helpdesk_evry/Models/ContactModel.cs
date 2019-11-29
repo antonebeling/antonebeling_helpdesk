@@ -30,11 +30,11 @@ namespace Helpdesk_evry.Models
 
         [Required]
         [Display(Name = "Avdelning")]
-        public string[] serviceDepartments { get; set; }
+        public string[] ServiceDepartments { get; set; }
 
         [Required]
         [Display(Name = "Typ av ärende")]
-        public string[] typeOfProblems { get; set; }
+        public string[] TypeOfProblems { get; set; }
 
         [Required]
         [Display(Name = "Meddelande")]

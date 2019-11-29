@@ -79,12 +79,12 @@
                })
                 </div>
 
-                 @{ if (Model.typeOfProblems != null)
+                 @{ if (Model.TypeOfProblems != null)
                      {
                         <div class="col-6 pt-4">
-                        @Html.LabelFor(m => m.serviceDepartments)
-                        @Html.DropDownListFor(m => m.serviceDepartments, 
-                       new SelectList(Model.serviceDepartments),
+                        @Html.LabelFor(m => m.ServiceDepartments)
+                        @Html.DropDownListFor(m => m.ServiceDepartments, 
+                       new SelectList(Model.ServiceDepartments),
                        "",
                        new
                        {
@@ -97,11 +97,11 @@
                     }
                 }
 
-                @{ if (Model.typeOfProblems != null) { 
+                @{ if (Model.TypeOfProblems != null) { 
                         <div class="col-6 pt-4">
-                        @Html.LabelFor(m => m.typeOfProblems)
-                        @Html.DropDownListFor(m => m.typeOfProblems,
-                       new SelectList(Model.typeOfProblems),
+                        @Html.LabelFor(m => m.TypeOfProblems)
+                        @Html.DropDownListFor(m => m.TypeOfProblems,
+                       new SelectList(Model.TypeOfProblems),
                        "",
                        new
                        {

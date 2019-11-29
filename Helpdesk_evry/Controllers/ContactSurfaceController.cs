@@ -18,8 +18,8 @@ namespace Helpdesk_evry.Controllers
             var problems = page.Value<string[]>("typeOfProblem");
             var department = page.Value<string[]>("serviceDepartment");
 
-            model.typeOfProblems = problems;
-            model.serviceDepartments = department;
+            model.TypeOfProblems = problems;
+            model.ServiceDepartments = department;
 
             model.PageId = pageId;
             return PartialView(PARTIAL_VIEW_FOLDER + "_Contact.cshtml", model);
@@ -48,7 +48,7 @@ namespace Helpdesk_evry.Controllers
             MailMessage message = new MailMessage(sender, receiever);
             message.Subject = string.Format("{0} - {1}", model.Subject, model.EmailAddress);
             message.Body = string.Format("Avdelning: {0}.\nÄrende: {1}.\nTelefon: {2}\nE-postadress: {3}\n \n{4}",
-            model.typeOfProblems, model.serviceDepartments, model.PhoneNumber, model.EmailAddress, model.Message);
+            model.TypeOfProblems, model.ServiceDepartments, model.PhoneNumber, model.EmailAddress, model.Message);
             SmtpClient client = new SmtpClient("127.0.0.1", 25);
             client.Send(message);
         }

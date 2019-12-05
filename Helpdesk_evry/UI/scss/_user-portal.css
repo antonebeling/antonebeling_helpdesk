@@ -16,7 +16,7 @@
 
 .manual-box {
   display: inline-block;
-  border: 1px solid transparent;
+  border: 1px solid lightgray;
   border-radius: 0.25rem;
   font-weight: 400;
   padding: .375rem .75rem;

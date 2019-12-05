@@ -11,8 +11,16 @@
     font-size: 1.3rem;
 }
 
+.userSection{
+    .row{
+        h2{
+            font-weight:300;
+        }
+    }
+}
+
 .logout-btn-div {
-    padding-left: 2rem;
+    
 }
 
 .text-logout {
@@ -20,9 +28,9 @@
     font-size: 1.5rem;
 }
 
-.manual-box{
+.manual-box {
     display: inline-block;
-    border: 1px solid transparent;
+    border: 1px solid lightgray;
     border-radius: 0.25rem;
     font-weight: 400;
     padding: .375rem .75rem;
@@ -30,10 +38,14 @@
     vertical-align: middle;
     line-height: 1.5;
     font-size: 1.5rem;
-    .manual-header{
-        text-align:center;
-    }
-    .manual-content{
+    background-color: $light-passive-bg;
 
+    .manual-header {
+        text-align: center;
+    }
+
+    .manual-content {
+        font-weight: 300;
+        font-size: 1.3rem;
     }
 }

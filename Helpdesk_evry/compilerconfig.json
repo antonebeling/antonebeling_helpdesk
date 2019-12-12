@@ -38,5 +38,9 @@
   {
     "outputFile": "UI/scss/_user-portal.css",
     "inputFile": "UI/scss/_user-portal.scss"
+  },
+  {
+    "outputFile": "UI/scss/_newsPage.css",
+    "inputFile": "UI/scss/_newsPage.scss"
   }
 ]

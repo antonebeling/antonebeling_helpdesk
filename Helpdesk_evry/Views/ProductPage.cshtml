@@ -6,11 +6,12 @@
 }
 
 @{
-    var FAQselection = Model.ChildrenOfType("fAQItem")
+    var FAQselection = Model.DescendantsOrSelf().OfTypes("fAQItem")
         .Where(x => x.IsVisible())
         .OrderBy(x => x.Id);
 
-    var downloadSelection = Model.ChildrenOfType("downloadItem")
+
+    var downloadSelection = Model.DescendantsOrSelf().OfTypes("downloadItem")
         .Where(x => x.IsVisible())
         .OrderBy(x => x.Id);
 }
@@ -19,8 +20,7 @@
     @(Html.GetGridHtml(Model, "productPageContent"))
 </div>
 
-
-@{if(downloadSelection != null && downloadSelection.Any())
+@{if (downloadSelection != null && downloadSelection.Any())
     {
         <section>
             <div class="container">

@@ -5,7 +5,7 @@
     {
         if(Model != null && Model.Any()){
 
-            var FAQselection = item.ChildrenOfType("fAQItem")
+            var FAQselection = item.DescendantsOrSelf().OfTypes("fAQItem")
                 .Where(x => x.IsVisible())
                 .OrderBy(x => x.Id);
 

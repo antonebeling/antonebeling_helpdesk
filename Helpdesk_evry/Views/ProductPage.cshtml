@@ -45,28 +45,32 @@
     {
         <section class="documentsSection">
             <div class="container">
-                <div class="documents">
-                    @if(downloadSelection != null && downloadSelection.Any()) {
-                          <div class="row">
-                             <h3 class="col-12">Manualer</h3>
-                             <hr class="hr-80" />
-                             <!-- Download partial is of the class Col-6-->
-                             @Html.Partial("Download/_download", downloadSelection)
-
-                             <div class="col-md-6">
-                                 @Model.Value("downloadText")
-                             </div>
-                         </div>
-                    }
-                    @if(newsSelection != null && newsSelection.Any()) { 
+                @if (downloadSelection != null && downloadSelection.Any())
+                {
+                    <div class="documents mb-4">
                         <div class="row">
-                            <h3 class="col-12">Nyheter</h3>
+                            <h2 class="col-12">Manualer</h2>
+                            <hr class="hr-80" />
+                            <!-- Download partial is of the class Col-6-->
+                            @Html.Partial("Download/_download", downloadSelection)
+
+                            <div class="col-md-6">
+                                @Model.Value("downloadText")
+                            </div>
+                        </div>
+                    </div>
+                    }
+                @if (newsSelection != null && newsSelection.Any())
+                {
+                    <div class="documents">
+                        <div class="row">
+                            <h2 class="col-12">Nyheter</h2>
                             <hr class="hr-80" />
                         </div>
                         @Html.Partial("News/_news", newsSelection)
-                    }
+                    </div>
+                }
                 </div>
-            </div>
         </section>
     }
 }

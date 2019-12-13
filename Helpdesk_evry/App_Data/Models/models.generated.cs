@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f3c1b64f34b980c3")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4f6aa016a6a53595")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -1293,13 +1293,6 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
-
-		///<summary>
-		/// ownedProducts: Enter the products that this particuar user owns
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		[ImplementPropertyType("ownedProducts")]
-		public IEnumerable<UserPortalOwned> OwnedProducts => this.Value<IEnumerable<UserPortalOwned>>("ownedProducts");
 
 		///<summary>
 		/// productDocuments

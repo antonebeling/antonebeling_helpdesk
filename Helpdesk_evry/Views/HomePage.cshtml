@@ -81,7 +81,7 @@
 
                             if (answer.ToString().Length > 200)
                             {
-                                answer = Html.Raw(Html.ReplaceLineBreaksForHtml(FAQ.Value<string>("answer").Substring(0, 300)));
+                                answer = Html.Raw(Html.ReplaceLineBreaksForHtml(FAQ.Value<string>("answer")));
                             }
 
                             @(Helpers.faqCards(@question, @answer, @id));

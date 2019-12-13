@@ -1,0 +1,64 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.NewsRss>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using System;
+@using System.Collections.Generic;
+@using Umbraco.Core.Composing;
+@using Umbraco.Core.Models.PublishedContent;
+@using Umbraco.Web;
+@{
+    Layout = null;
+    Response.AddHeader("Content-Type", "text/xml");
+
+    const string DATE_FORMAT = "ddd, dd MMM yyyy hh:mm:ss";
+    const string FEED_TITLE = "Evry Helpdesk News";
+    const string FEED_DESCRIPTION = "Evry Helpdesk | News RSS feed";
+    const string CREATOR_NAME = "Anton Ebeling";
+    const string CATEGORY = "Web Development";
+    const string UPDATE_PERIOD = "daily";
+    const int UPDATE_FREQUENCY = 1;
+    const string LANGUAGE = "en-US";
+    //const string HOME_PAGE_DOC_TYPE_ALIAS = "homePage";
+    const string FEED_PARENT_DOC_TYPE_ALIAS = "newsCollection";
+    const string ARTICLE_DOC_TYPE_ALIAS = "newsPage";
+    const string ARTICLE_TITLE_PROPERTY_ALIAS = "title";
+    const string ARTICLE_DATE_PROPERTY_ALIAS = "date";
+
+    IPublishedContent homePage = Model.Root();
+    IPublishedContent feedParentPage = homePage.Descendants().Where(x => x.IsDocumentType(FEED_PARENT_DOC_TYPE_ALIAS)).FirstOrDefault();
+    IEnumerable<IPublishedContent> feedItems = homePage.Descendants().Where(x => x.IsDocumentType(ARTICLE_DOC_TYPE_ALIAS) && x.IsVisible()).OrderByDescending(x => x.Value<DateTime>(ARTICLE_DATE_PROPERTY_ALIAS));
+    DateTime lastBuildDate = feedItems.Max(x => x.UpdateDate);
+    string siteUrl = homePage.Url(mode: UrlMode.Absolute);
+    string feedUrl = Model.Url(mode: UrlMode.Absolute);
+}
+
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+
+    <channel>
+        <title>@FEED_TITLE</title>
+        <atom:link href="@feedUrl" rel="self" type="application/rss+xml" />
+        <link> @feedParentPage.Url(mode: UrlMode.Absolute) </link>
+        <description>@FEED_DESCRIPTION</description>
+        <lastBuildDate>@lastBuildDate.ToString(DATE_FORMAT)</lastBuildDate>
+        <language>@LANGUAGE</language>
+        <sy:updatePeriod>@UPDATE_PERIOD</sy:updatePeriod>
+        <sy:updateFrequency>@UPDATE_FREQUENCY</sy:updateFrequency>
+        @foreach (IPublishedContent feedItem in feedItems)
+        {
+            <item>
+                <title>@(feedItem.HasProperty(ARTICLE_TITLE_PROPERTY_ALIAS) ? feedItem.Value<string>(ARTICLE_TITLE_PROPERTY_ALIAS) : feedItem.Name)</title>
+                @{<text>@Html.Raw("<link>" + (Umbraco.Content(feedItem.Id)?.Url()) + "</link>")</text>}
+                <pubDate>@(((DateTime)feedItem.Value(ARTICLE_DATE_PROPERTY_ALIAS)).ToString(DATE_FORMAT))</pubDate>
+                <dc:creator><![CDATA[@CREATOR_NAME]]></dc:creator>
+                <category><![CDATA[@CATEGORY]]></category>
+                <guid isPermaLink="false">@feedItem.Url(mode: UrlMode.Absolute)</guid>
+                <description><![CDATA[@feedItem.Value("introduction")]]></description>
+            </item>
+        }
+    </channel>
+</rss>

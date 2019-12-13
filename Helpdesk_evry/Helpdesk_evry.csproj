@@ -563,6 +563,8 @@
     <Content Include="Views\redirect.cshtml" />
     <Content Include="Views\NewsPage.cshtml" />
     <Content Include="UI\scss\_newsPage.scss" />
+    <Content Include="Views\Partials\News\_news.cshtml" />
+    <Content Include="Views\NewsRSS.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

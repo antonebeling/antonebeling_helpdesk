@@ -44,12 +44,13 @@ namespace Helpdesk_evry.Controllers
 
             string sender = (!string.IsNullOrEmpty(page.Value<string>("sendingEmail")) ? page.Value<string>("sendingEmail") : homePage.Value<string>("defaultSendingEmail"));
             string receiever = (!string.IsNullOrEmpty(page.Value<string>("receievingEmail")) ? page.Value<string>("receievingEmail") : homePage.Value<string>("defaultReceievingEmail"));
+            string smtp = (!string.IsNullOrEmpty(page.Value<string>("smtpClient")) ? page.Value<string>("smtpClient") : homePage.Value<string>("defaultSmtpClient"));
 
             MailMessage message = new MailMessage(sender, receiever);
             message.Subject = string.Format("{0} - {1}", model.Subject, model.EmailAddress);
             message.Body = string.Format("Avdelning: {0}.\nÄrende: {1}.\nTelefon: {2}\nE-postadress: {3}\n \n{4}",
-            model.TypeOfProblems, model.ServiceDepartments, model.PhoneNumber, model.EmailAddress, model.Message);
-            SmtpClient client = new SmtpClient("127.0.0.1", 25);
+            string.Join(", ",model.TypeOfProblems), string.Join(", ",model.ServiceDepartments), model.PhoneNumber, model.EmailAddress, model.Message);
+            SmtpClient client = new SmtpClient(smtp, 25);
             client.Send(message);
         }
     }

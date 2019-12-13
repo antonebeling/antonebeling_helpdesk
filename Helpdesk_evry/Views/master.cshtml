@@ -23,8 +23,7 @@
             fallback: Fallback.ToDefaultValue, defaultValue: homePage.Value<string[]>("metaKeywordsHome"));
 
         var keywords = String.Join(",", temp);
-
-        bool show = true;  
+ 
 	}
     
 	<meta charset="utf-8">
@@ -59,7 +58,7 @@
                     var brandIcon = homePage.Value<IPublishedContent>("brandIcon");
                     if (brandIcon != null)
                     {
-                        <img src="@brandIcon.Url?height=80px" style="padding-top:8px; padding-bottom:8px"/>
+                        <img src="@brandIcon.Url?height=80px" style="padding-top:8px; padding-bottom:8px" />
                     }
                 }
             </a>
@@ -134,6 +133,8 @@
         </div>
     </nav>
 
+    <!-- Modal -->
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -163,11 +164,7 @@
         </div>
     </div>
 
-
-
     @RenderBody()
-
-
 
     <!-- Form -->
 
@@ -192,7 +189,8 @@
                         @{
                             if (homePage.HasValue("informationHours"))
                             {
-                                <div class="width-70 mx-auto">@(homePage.Value("informationHours"))</div>;
+                                <div class="width-70 mx-auto">@(homePage.Value("informationHours"))</div>
+;
                             }
                         }
                         <hr class="hr-80" />

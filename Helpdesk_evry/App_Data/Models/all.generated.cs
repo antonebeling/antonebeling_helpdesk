@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "55db3a8bb11d1b8f")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f3c1b64f34b980c3")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -120,14 +120,14 @@ namespace Umbraco.Web.PublishedModels
 		public string Title => this.Value<string>("title");
 
 		///<summary>
-		/// Receieving Email: Enter the Email to wich you want to reveieve the email.
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email, or leave empty to use default mail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("receievingEmail")]
 		public string ReceievingEmail => ContactFormContent.GetReceievingEmail(this);
 
 		///<summary>
-		/// Sending Email: Enter the email from which the emails will appear to be sent from
+		/// Sending Email: Enter the email from which the emails will appear to be sent from, or leave empty to use default mail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("sendingEmail")]
@@ -139,6 +139,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("serviceDepartment")]
 		public IEnumerable<string> ServiceDepartment => ContactFormContent.GetServiceDepartment(this);
+
+		///<summary>
+		/// Smtp Client: Enter your smtp client adrees e.g. 127.0.0.1
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("smtpClient")]
+		public string SmtpClient => ContactFormContent.GetSmtpClient(this);
 
 		///<summary>
 		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
@@ -291,6 +298,13 @@ namespace Umbraco.Web.PublishedModels
 		public string DefaultSendingEmail => this.Value<string>("defaultSendingEmail");
 
 		///<summary>
+		/// DefaultSmtpClient: Enter the wanted default smtp client
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("defaultSmtpClient")]
+		public string DefaultSmtpClient => this.Value<string>("defaultSmtpClient");
+
+		///<summary>
 		/// Entry Image: The image that is the first thing the user sees on the homepage
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
@@ -347,14 +361,14 @@ namespace Umbraco.Web.PublishedModels
 		public string WebsiteTitleHome => this.Value<string>("websiteTitleHome");
 
 		///<summary>
-		/// Receieving Email: Enter the Email to wich you want to reveieve the email.
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email, or leave empty to use default mail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("receievingEmail")]
 		public string ReceievingEmail => ContactFormContent.GetReceievingEmail(this);
 
 		///<summary>
-		/// Sending Email: Enter the email from which the emails will appear to be sent from
+		/// Sending Email: Enter the email from which the emails will appear to be sent from, or leave empty to use default mail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("sendingEmail")]
@@ -366,6 +380,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("serviceDepartment")]
 		public IEnumerable<string> ServiceDepartment => ContactFormContent.GetServiceDepartment(this);
+
+		///<summary>
+		/// Smtp Client: Enter your smtp client adrees e.g. 127.0.0.1
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("smtpClient")]
+		public string SmtpClient => ContactFormContent.GetSmtpClient(this);
 
 		///<summary>
 		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
@@ -422,14 +443,14 @@ namespace Umbraco.Web.PublishedModels
 		public Newtonsoft.Json.Linq.JToken ProductPageContent => this.Value<Newtonsoft.Json.Linq.JToken>("productPageContent");
 
 		///<summary>
-		/// Receieving Email: Enter the Email to wich you want to reveieve the email.
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email, or leave empty to use default mail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("receievingEmail")]
 		public string ReceievingEmail => ContactFormContent.GetReceievingEmail(this);
 
 		///<summary>
-		/// Sending Email: Enter the email from which the emails will appear to be sent from
+		/// Sending Email: Enter the email from which the emails will appear to be sent from, or leave empty to use default mail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("sendingEmail")]
@@ -441,6 +462,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("serviceDepartment")]
 		public IEnumerable<string> ServiceDepartment => ContactFormContent.GetServiceDepartment(this);
+
+		///<summary>
+		/// Smtp Client: Enter your smtp client adrees e.g. 127.0.0.1
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("smtpClient")]
+		public string SmtpClient => ContactFormContent.GetSmtpClient(this);
 
 		///<summary>
 		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
@@ -670,6 +698,10 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		IEnumerable<string> ServiceDepartment { get; }
 
+		/// <summary>Smtp Client</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		string SmtpClient { get; }
+
 		/// <summary>typeOfProblem</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		IEnumerable<string> TypeOfProblem { get; }
@@ -701,7 +733,7 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Receieving Email: Enter the Email to wich you want to reveieve the email.
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email, or leave empty to use default mail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("receievingEmail")]
@@ -712,7 +744,7 @@ namespace Umbraco.Web.PublishedModels
 		public static string GetReceievingEmail(IContactFormContent that) => that.Value<string>("receievingEmail");
 
 		///<summary>
-		/// Sending Email: Enter the email from which the emails will appear to be sent from
+		/// Sending Email: Enter the email from which the emails will appear to be sent from, or leave empty to use default mail
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("sendingEmail")]
@@ -732,6 +764,17 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Service Department</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		public static IEnumerable<string> GetServiceDepartment(IContactFormContent that) => that.Value<IEnumerable<string>>("serviceDepartment");
+
+		///<summary>
+		/// Smtp Client: Enter your smtp client adrees e.g. 127.0.0.1
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("smtpClient")]
+		public string SmtpClient => GetSmtpClient(this);
+
+		/// <summary>Static getter for Smtp Client</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static string GetSmtpClient(IContactFormContent that) => that.Value<string>("smtpClient");
 
 		///<summary>
 		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
@@ -1021,6 +1064,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("newsPost")]
 		public Newtonsoft.Json.Linq.JToken NewsPost => this.Value<Newtonsoft.Json.Linq.JToken>("newsPost");
+
+		///<summary>
+		/// Title: enter the title of the news
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("title")]
+		public string Title => this.Value<string>("title");
 	}
 
 	/// <summary>FAQ Collection</summary>
@@ -1069,6 +1119,32 @@ namespace Umbraco.Web.PublishedModels
 
 		// ctor
 		public DownloadCollection(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+	}
+
+	/// <summary>News RSS</summary>
+	[PublishedModel("newsRSS")]
+	public partial class NewsRss : PublishedContentModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "newsRSS";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NewsRss, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public NewsRss(IPublishedContent content)
 			: base(content)
 		{ }
 

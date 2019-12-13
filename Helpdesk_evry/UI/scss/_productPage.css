@@ -1,17 +1,28 @@
 ﻿.informationGrid {
   font-weight: 400; }
   .informationGrid img {
+    display: block;
     max-height: 100%;
-    text-align: center;
-    max-width: 100%; }
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px; }
   .informationGrid .caption {
     font-style: italic; }
   .informationGrid .column {
     padding-left: 1rem;
     padding-right: 1rem; }
+  .informationGrid h1 {
+    font-weight: 400; }
 
-.faqSection h3 {
-  padding: 1rem; }
+.faqSection {
+  padding-bottom: 2rem; }
+  .faqSection h3 {
+    padding: 1rem;
+    font-weight: 400; }
+
+.documentsSection {
+  padding-bottom: 2rem; }
 
 .documents {
   padding-top: 0.5rem;
@@ -31,3 +42,16 @@
     @media (max-width: 768px) {
       .documents p {
         padding-left: 0.5rem; } }
+  .documents .title {
+    padding-left: 3rem;
+    font-style: italic; }
+    .documents .title h4 {
+      font-weight: 400; }
+  .documents .date {
+    text-align: right;
+    padding-right: 2rem;
+    padding-bottom: 0.5rem; }
+  .documents .intro {
+    padding-left: 1rem;
+    margin-left: 1rem;
+    padding-right: 2rem; }

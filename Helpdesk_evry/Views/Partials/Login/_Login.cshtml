@@ -1,0 +1,40 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Helpdesk_evry.Models.LoginModel>
+@using Umbraco.Web
+
+@if (!Umbraco.MemberIsLoggedOn())
+{
+    using (Html.BeginUmbracoForm("SubmitLogin", "Member", System.Web.Mvc.FormMethod.Post, new { id = "login" }))
+    {
+    <div class="pb-3">
+        @Html.AntiForgeryToken()
+        @*@Html.LabelFor(m => m.Username)*@
+        @Html.TextBoxFor(m => m.Username, new
+   {
+       placeholder = "Username",
+       @class = "form-control",
+       onkeyup = "this.setAttribute('value', this.value);",
+       value = "",
+       required = "required"
+   })
+    </div>
+    
+    <div class="pb-3">
+        @*@Html.LabelFor(m => m.Password)*@
+        @Html.PasswordFor(m => m.Password, new
+   {
+       placeholder = "Password",
+       @class = "form-control",
+       onkeyup = "this.setAttribute('value', this.value);",
+       value = "",
+       required = "required"
+   })
+
+    </div>
+        @Html.ValidationSummary()
+        <button class="btn btn-dark login-btn" name="login" type="submit">Logga in <i class="fas fa-sign-in-alt"></i></button>
+    }
+}
+else
+{
+    Html.RenderAction("RenderLogout", "Member");
+}

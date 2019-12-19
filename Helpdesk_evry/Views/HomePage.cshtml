@@ -3,83 +3,92 @@
 @using Umbraco.Web.Models
 
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
 }
 
-<!-- Start Image -->
+<!-- Startimage -->
 <div class="container-fluid">
-	<div><h3></h3></div>
-	<div class="row padding-bottom justify-content-md-center">
-		<div class="col-12">
-			@{
-				var homeImage = Model.Value<IPublishedContent>("entryImage");
-				if(homeImage != null)
-				{
-					<div class="image-fitting-div"><img src="@homeImage.Url" class="img-fluid image-padding"/></div>;
-				}
-			}
-		</div>
-	</div>
+    <div class="row start-image justify-content-md-center">
+        <div class="col-12" style="padding: 0">
+            @{
+                var homeImage = Model.Value<IPublishedContent>("entryImage");
+                if (homeImage != null)
+                {
+                    <div class="image-fitting-div"><img src="@homeImage.Url" class="img-fluid image-padding" /></div>;
+                }
+            }
+        </div>
+    </div>
 </div>
 
+<!-- Boxlist -->
 <section class="text-center">
-	<div class="container padding-bottom">
-    	<div class="row">
-			@{
-				var items = Model.Value<IEnumerable<IPublishedElement>>("boxList");
+    <div class="container">
+        <div class="row">
+            <div class="col-12 cards-header">
+                <h2 class="display-4">
+                    @Model.Value("boxTitle")
+                </h2>
+            </div>
+            @{
+                var items = Model.Value<IEnumerable<IPublishedElement>>("boxList");
 
-				if(items != null){
-					foreach(var item in items)
-					{
-						var iconCode = item.Value<string>("iconCode");
-						var title = item.Value<string>("productTitle");
-						var description = item.Value<string>("descriptionText");
-						var webLink = item.Value<Link>("webpageLink");
-						
-						<div class="col-lg-4 col-md-6">
-							<a class="cardHover" href="@webLink.Url">
-								<div class="mx-auto mb-3 lg-3 product-item">
-									<div class="product-item-icon d-sm-flex">
-										<i class="@iconCode fa-5x m-auto product-item-iconColor"></i>
-									</div>
-									<div class="cardDesc">
-										<h3>@title</h3>
-										<div class="lead mb-0">@Html.Raw(Html.ReplaceLineBreaksForHtml(description))</div>
-									</div>
-								</div>
-							</a>
-						</div>;
-					}
-				}
-			}
-    	</div>
-  	</div>
+                if (items != null)
+                {
+                    foreach (var item in items)
+                    {
+                        var iconCode = item.Value<string>("iconCode");
+                        var title = item.Value<string>("productTitle");
+                        var description = item.Value<string>("descriptionText");
+                        var webLink = item.Value<Link>("webpageLink");
+
+                        <div class="col-lg-4 col-md-6">
+                            <a class="cardHover" href="@webLink.Url">
+                                <div class="mx-auto mb-3 lg-3 product-item">
+                                    <div class="product-item-icon d-sm-flex">
+                                        <i class="@iconCode fa-5x m-auto product-item-iconColor"></i>
+                                    </div>
+                                    <div class="cardDesc">
+                                        <h3>@title</h3>
+                                        <div class="lead mb-0">@Html.Raw(Html.ReplaceLineBreaksForHtml(description))</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>;
+                    }
+                }
+            }
+        </div>
+    </div>
 </section>
 
 <section class="faqSection">
-	<div class="container">
-		<div class="row">
-			<h3 class="pl-3">Svar på de vanligaste frågorna vi får:</h3>
-			@{
-				var FAQitem = Model.Value<IEnumerable<IPublishedElement>>("fAQList");
+    <div class="container">
+        <div class="row">
+            <h3 class="pl-3" style="font-weight: 400">Svar på de vanligaste frågorna vi får:</h3>
+            @{
+                var FAQitem = Model.Value<IEnumerable<IPublishedElement>>("fAQList");
 
-				if(FAQitem != null){
-					<div id="FAQdropdown">
-					@foreach(var item in FAQitem){
-						var FAQ = item.Value<IPublishedContent>("importantFAQ");
-						var question = FAQ.Value<string>("question");
-						var answer = Html.Raw(Html.ReplaceLineBreaksForHtml(FAQ.Value<string>("answer")));
-						var id = FAQ.Id;
-						
-						if(answer.ToString().Length > 200){
-							answer = Html.Raw(Html.ReplaceLineBreaksForHtml(FAQ.Value<string>("answer").Substring(0, 300)));
-						}
-						
-						@(Helpers.faqCards(@question, @answer, @id));						
-					}
-					</div>;
-				}
-			}
-		</div>
-	</div>
+                if (FAQitem != null)
+                {
+                    <div id="FAQdropdown">
+                        @foreach (var item in FAQitem)
+                        {
+                            var FAQ = item.Value<IPublishedContent>("importantFAQ");
+                            var question = FAQ.Value<string>("question");
+                            var answer = Html.Raw(Html.ReplaceLineBreaksForHtml(FAQ.Value<string>("answer")));
+                            var id = FAQ.Id;
+
+                            if (answer.ToString().Length > 200)
+                            {
+                                answer = Html.Raw(Html.ReplaceLineBreaksForHtml(FAQ.Value<string>("answer")));
+                            }
+
+                            @(Helpers.faqCards(@question, @answer, @id));
+                        }
+                    </div>;
+          }
+            }
+        </div>
+    </div>
 </section>

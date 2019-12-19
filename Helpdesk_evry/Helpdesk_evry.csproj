@@ -425,12 +425,32 @@
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="config\logviewer.searches.config.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="UI\css\main.css" />
     <Content Include="UI\css\main.min.css" />
     <Content Include="UI\img\0.jpg" />
     <Content Include="UI\img\50-Beautiful.jpg" />
     <Content Include="UI\img\logo.png" />
+    <Content Include="UI\scss\_contactFrom.css">
+      <DependentUpon>_contactFrom.scss</DependentUpon>
+    </Content>
+    <Content Include="UI\scss\_contactFrom.min.css">
+      <DependentUpon>_contactFrom.css</DependentUpon>
+    </Content>
     <Content Include="UI\scss\_faq.css">
       <DependentUpon>_faq.scss</DependentUpon>
     </Content>
@@ -443,11 +463,23 @@
     <Content Include="UI\scss\_global.min.css">
       <DependentUpon>_global.css</DependentUpon>
     </Content>
+    <Content Include="UI\scss\_newsPage.css">
+      <DependentUpon>_newsPage.scss</DependentUpon>
+    </Content>
+    <Content Include="UI\scss\_newsPage.min.css">
+      <DependentUpon>_newsPage.css</DependentUpon>
+    </Content>
     <Content Include="UI\scss\_productPage.css">
       <DependentUpon>_productPage.scss</DependentUpon>
     </Content>
     <Content Include="UI\scss\_productPage.min.css">
       <DependentUpon>_productPage.css</DependentUpon>
+    </Content>
+    <Content Include="UI\scss\_user-portal.css">
+      <DependentUpon>_user-portal.scss</DependentUpon>
+    </Content>
+    <Content Include="UI\scss\_user-portal.min.css">
+      <DependentUpon>_user-portal.css</DependentUpon>
     </Content>
     <Content Include="UI\scss\_variables.css">
       <DependentUpon>_variables.scss</DependentUpon>
@@ -458,6 +490,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContactSurfaceController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -478,6 +514,14 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -504,6 +548,23 @@
     <Content Include="UI\scss\_icons.scss" />
     <Content Include="UI\scss\_productPage.scss" />
     <Content Include="UI\scss\_variables.scss" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Partials\Contact\_Contact.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="UI\scss\_contactFrom.scss" />
+    <Content Include="Views\Partials\Login\_Login.cshtml" />
+    <Content Include="Views\Partials\Login\_Logout.cshtml" />
+    <Content Include="Views\PortalPage.cshtml" />
+    <Content Include="Views\StandardPage.cshtml" />
+    <Content Include="UI\scss\_user-portal.scss" />
+    <Content Include="Views\Partials\Download\_download.cshtml" />
+    <Content Include="Views\redirect.cshtml" />
+    <Content Include="Views\NewsPage.cshtml" />
+    <Content Include="UI\scss\_newsPage.scss" />
+    <Content Include="Views\Partials\News\_news.cshtml" />
+    <Content Include="Views\NewsRSS.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -516,9 +577,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="UI\js\" />
-    <Folder Include="Views\Partials\Contact\" />
+    <Folder Include="Views\Member\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

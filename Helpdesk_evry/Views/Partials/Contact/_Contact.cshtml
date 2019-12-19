@@ -1,0 +1,130 @@
+﻿@inherits UmbracoViewPage<Helpdesk_evry.Models.ContactModel>
+@using Helpdesk_evry.Models;
+
+@using (Html.BeginUmbracoForm("SubmitForm", "ContactSurface", new { pageId = Model.PageId }, FormMethod.Post))
+{
+    <h2 style="font-weight:400; text-align:center">Skicka gärna ett mail om du har en fråga</h2>
+    @Html.AntiForgeryToken()
+        <div class="contact-form mb-3">
+            <div class="row">
+                <div class="col-6">
+                    @*@Html.LabelFor(m => m.FirstName)*@
+                    @Html.TextBoxFor(m => m.FirstName, new
+               {
+                   placeholder = "Förnamn",
+                   @class = "form-control",
+                   onkeyup = "this.setAttribute('value', this.value);",
+                   value = "",
+                   pattern = "^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$",
+                   required = "required"
+               })
+                </div>
+
+                <div class="col-6">
+                    @*@Html.LabelFor(m => m.LastName)*@
+                    @Html.TextBoxFor(m => m.LastName, new
+               {
+                   placeholder = "Efternamn",
+                   @class = "form-control",
+                   onkeyup = "this.setAttribute('value', this.value);",
+                   value = "",
+                   pattern = "^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$",
+                   required = "required"
+               })
+                </div>
+
+                <div class="col-12 pt-4">
+                    @*@Html.LabelFor(m => m.EmailAddress)*@
+                    @Html.TextBoxFor(m => m.EmailAddress, new
+               {
+                   placeholder = "E-postadress",
+                   @class = "form-control",
+                   type = "email",
+                   onkeyup = "this.setAttribute('value', this.value);",
+                   value = "",
+                   required = "required"
+               })
+                </div>
+                
+                <div class="col-12 pt-4">
+                    @*@Html.LabelFor(m => m.PhoneNumber)*@
+                    @Html.TextBoxFor(m => m.PhoneNumber, new
+               {
+                   placeholder = "Telefon",
+                   @class = "form-control",
+                   type = "tel",
+                   onkeyup = "this.setAttribute('value', this.value);",
+                   value = "",
+                   required = "required"
+               })
+                </div>
+
+                <div class="col-12 pt-4">
+                    @*@Html.LabelFor(m => m.Subject)*@
+                    @Html.TextBoxFor(m => m.Subject, new
+               {
+                   placeholder = "Ämne",
+                   @class = "form-control",
+                   onkeyup = "this.setAttribute('value', this.value);",
+                   value = "",
+                   required = "required"
+               })
+                </div>
+
+                 @{ if (Model.TypeOfProblems != null)
+                     {
+                        <div class="col-6 pt-4">
+                        @Html.LabelFor(m => m.ServiceDepartments)
+                        @Html.DropDownListFor(m => m.ServiceDepartments, 
+                       new SelectList(Model.ServiceDepartments),
+                       "",
+                       new
+                       {
+                       @class = "form-control",
+                       onkeyup = "this.setAttribute('value', this.value);",
+                       Value = "",
+                       required = "required"
+                       })
+                        </div>
+                    }
+                }
+
+                @{ if (Model.TypeOfProblems != null) { 
+                        <div class="col-6 pt-4">
+                        @Html.LabelFor(m => m.TypeOfProblems)
+                        @Html.DropDownListFor(m => m.TypeOfProblems,
+                       new SelectList(Model.TypeOfProblems),
+                       "",
+                       new
+                       {
+                       @class = "form-control",
+                       onkeyup = "this.setAttribute('value', this.value);",
+                       value = "",
+                       required = "required"
+                       })
+                        </div>
+                     }
+                }
+
+                <div class="col-12 pt-4">
+                    @Html.TextAreaFor(m => m.Message, new
+               {
+                   placeholder = " Meddelande",
+                   rows = "7",
+                   @class = "form-control",
+                   onkeyup = "this.setAttribute('value', this.value);",
+                   value = "",
+                   required = "required"
+               })
+                </div>
+
+                <div class="col-4 pt-2">
+                    <button class="btn btn-primary">Skicka</button>
+                </div>
+
+                <div class="col-12 pt-2">
+                    @Html.ValidationSummary()
+                </div>
+            </div>
+        </div>
+}

@@ -30,5 +30,17 @@
   {
     "outputFile": "UI/scss/_faq.css",
     "inputFile": "UI/scss/_faq.scss"
+  },
+  {
+    "outputFile": "UI/scss/_contactFrom.css",
+    "inputFile": "UI/scss/_contactFrom.scss"
+  },
+  {
+    "outputFile": "UI/scss/_user-portal.css",
+    "inputFile": "UI/scss/_user-portal.scss"
+  },
+  {
+    "outputFile": "UI/scss/_newsPage.css",
+    "inputFile": "UI/scss/_newsPage.scss"
   }
 ]

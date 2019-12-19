@@ -1,8 +1,8 @@
-.hr-60{
-    width: 60%;
+.hr-80{
+    width: 80%;
 }
-.width-60{
-    width: 60%;
+.width-70{
+    width: 70%;
 }
 
 .margin-right{
@@ -49,5 +49,12 @@
         p{
             margin-bottom: 0;
         }
+    }
+}
+
+.validation-summary-errors{
+    color: red;
+    ul{
+        list-style-type: none;
     }
 }

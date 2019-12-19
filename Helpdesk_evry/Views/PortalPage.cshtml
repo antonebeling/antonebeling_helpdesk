@@ -1,0 +1,71 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.PortalPage>
+@using ContentModels = Umbraco.Web.PublishedModels
+@using Umbraco.Web
+@{
+    Layout = "master.cshtml";
+    var homePage = Model.Root();
+
+}
+
+<section class="userSection padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @{ Html.RenderAction("RenderLogin", "Member");}
+                <hr class="hr-80" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center pb-3">
+                <h2>
+                    Dessa är de relevanta filerna för de produkter ni använder
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                @{
+                    var roleList = System.Web.Security.Roles.GetRolesForUser(System.Web.Security.Membership.GetUser().UserName);
+                    var myUser = Members.GetCurrentMember();
+                    var documents = myUser?.Value<IEnumerable<IPublishedContent>>("productDocuments");
+
+                <div class="row">
+                  @{foreach (var doc in documents)
+                    {
+                    var downloadSelection = doc.DescendantsOrSelf().OfTypes("downloadItem")
+                    .Where(x => x.IsVisible())
+                    .OrderBy(x => x.Id);
+                        <div class="col-lg-4 col-md-6 padding-bottom">
+                            <div class="manual-box container-fluid">
+                                <div class="manual-header">
+                                    <p>@doc.Name</p>
+                                    <hr class="hr-80" />
+                                </div>
+                                <div class="manual-content" style="height: 15rem">
+                                    @Html.Partial("Download/_download", downloadSelection)
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    }
+                </div>
+
+                @*foreach (var role in roleList)
+            {
+            <div class="manual-box col-4" style="border: 1px solid gray; background-color: #d4e8fc">
+                <div class="manual-header">
+                    <p>@role</p>
+                    <hr class="hr-80" />
+                </div>
+                <div clas="manual-content" style="height: 15rem">
+                    <ul>
+                        <li>hejsan</li>
+                    </ul>
+                </div>
+            </div>
+        }*@
+                }
+            </div>
+        </div>
+    </div>
+</section>

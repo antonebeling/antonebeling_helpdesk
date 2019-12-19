@@ -1,19 +1,47 @@
-nav{
-    .navbar{
+nav {
+    border-bottom: 0.5px solid #c1c1c1;
+    
+    .navbar {
         padding-top: 0;
         padding-bottom: 0;
+        height: 20px;
     }
-    li{
-        font-size: 1.4rem;
+
+    li {
+        font-size: 1.3rem;
     }
+
+
     background-color: $light-passive-bg;
+
+    .login-div-btn {
+        .nav-link {
+            color: white !important;
+            font-size: 1.3rem;
+        }
+        border-radius: 1rem;
+    }
+}
+
+.cards-header{
+    margin-bottom: 2rem;
 }
 
 .image-fitting-div{
     text-align: center;
     @media(min-width: 992px){
-        height: 400px;
+        height: 600px;
         overflow: hidden;
     }
+    padding:0;
 }
 
+.start-image{
+    padding: 1rem;
+    padding-bottom:2rem;
+    @media(max-width: 574px){
+        padding: 0;
+        padding-bottom: 1rem;
+       
+    }
+}

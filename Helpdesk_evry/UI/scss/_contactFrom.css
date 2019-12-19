@@ -1,0 +1,17 @@
+﻿.contact-form {
+  /*border: 1px solid black;*/
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, black, transparent) 1 100%;
+  padding: 1rem; }
+
+@media (min-width: 772px) {
+  .contact-form {
+    margin-left: 3rem;
+    margin-right: 3rem; } }
+
+input:valid {
+  border: 2px solid #b6f5be; }
+
+input:not([value=""]):not(:focus):invalid {
+  border: 2px solid #ef7272; }

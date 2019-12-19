@@ -1,30 +1,76 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ProductPage>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = "master.cshtml";
-	var homePage = Model.Root();
+    Layout = "master.cshtml";
+    var homePage = Model.Root();
 }
 
 @{
-	var FAQselection = Model.ChildrenOfType("fAQItem")
-		.Where(x => x.IsVisible())
-		.OrderBy(x => x.Id);
+    var FAQselection = Model.DescendantsOrSelf().OfTypes("fAQItem")
+        .Where(x => x.IsVisible())
+        .OrderBy(x => x.Id);
+
+
+    var downloadSelection = Model.DescendantsOrSelf().OfTypes("downloadItem")
+        .Where(x => x.IsVisible())
+        .OrderBy(x => x.Id);
+
+    var newsSelection = Model.DescendantsOrSelf().OfTypes("newsPage")
+        .Where(x => x.IsVisible())
+        .OrderBy(x => x.CreateDate);
 }
 
-<div class="informationGrid margin-auto padding-bottom">
-	@(Html.GetGridHtml(Model, "productPageContent"))
+<div class="informationGrid margin-auto ">
+    @(Html.GetGridHtml(Model, "productPageContent"))
 </div>
 
-<section class="faqSection">
-	<div class="container">
-		<div class="row">
-			@{
-				if(FAQselection != null && FAQselection.Any()){
-					<h3>Svar på de vanligaste @Model.Name frågorna vi får:</h3>
 
-					@Html.Partial("Faq/_FaqCategory", FAQselection);
-				}
-			}
-		</div>
-	</div>
+
+<section class="faqSection">
+    <div class="container">
+        <div class="row">
+            @{
+                if (FAQselection != null && FAQselection.Any())
+                {
+                    <h3>Svar på de vanligaste @Model.Name frågorna vi får:</h3>
+
+                    @Html.Partial("Faq/_FaqCategory", FAQselection);
+                }
+            }
+        </div>
+    </div>
 </section>
+
+@{if ((downloadSelection != null && downloadSelection.Any()) || (newsSelection != null && newsSelection.Any()))
+    {
+        <section class="documentsSection">
+            <div class="container">
+                @if (downloadSelection != null && downloadSelection.Any())
+                {
+                    <div class="documents mb-4">
+                        <div class="row">
+                            <h2 class="col-12">Manualer</h2>
+                            <hr class="hr-80" />
+                            <!-- Download partial is of the class Col-6-->
+                            @Html.Partial("Download/_download", downloadSelection)
+
+                            <div class="col-md-6">
+                                @Model.Value("downloadText")
+                            </div>
+                        </div>
+                    </div>
+                    }
+                @if (newsSelection != null && newsSelection.Any())
+                {
+                    <div class="documents">
+                        <div class="row">
+                            <h2 class="col-12">Nyheter</h2>
+                            <hr class="hr-80" />
+                        </div>
+                        @Html.Partial("News/_news", newsSelection)
+                    </div>
+                }
+                </div>
+        </section>
+    }
+}

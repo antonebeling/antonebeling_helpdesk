@@ -463,6 +463,12 @@
     <Content Include="UI\scss\_global.min.css">
       <DependentUpon>_global.css</DependentUpon>
     </Content>
+    <Content Include="UI\scss\_newsPage.css">
+      <DependentUpon>_newsPage.scss</DependentUpon>
+    </Content>
+    <Content Include="UI\scss\_newsPage.min.css">
+      <DependentUpon>_newsPage.css</DependentUpon>
+    </Content>
     <Content Include="UI\scss\_productPage.css">
       <DependentUpon>_productPage.scss</DependentUpon>
     </Content>
@@ -554,6 +560,11 @@
     <Content Include="Views\StandardPage.cshtml" />
     <Content Include="UI\scss\_user-portal.scss" />
     <Content Include="Views\Partials\Download\_download.cshtml" />
+    <Content Include="Views\redirect.cshtml" />
+    <Content Include="Views\NewsPage.cshtml" />
+    <Content Include="UI\scss\_newsPage.scss" />
+    <Content Include="Views\Partials\News\_news.cshtml" />
+    <Content Include="Views\NewsRSS.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.NewsPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+
+
+<div class="informationGridNews margin-auto padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="time col-12">
+                @Model.Value("date")
+            </div>
+        </div>
+    </div>
+    @(Html.GetGridHtml(Model, "newsPost"))
+    
+</div>

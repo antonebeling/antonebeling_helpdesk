@@ -1,0 +1,36 @@
+﻿@using Umbraco.Web.Models
+@model IEnumerable<IPublishedContent>
+
+@{
+    foreach (var item in Model)
+    {
+        var title = item.Value<string>("title");
+        var date = item.Value<string>("date");
+        var intro = item.Value<string>("introduction");
+
+
+        <a href="@item.Url" style="color:inherit">
+            <div class="row">
+                <div class="col-12 title" >
+                    <h4>@title</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 intro">
+                    @if (intro.Length > 300) { 
+                    <p>@intro.Substring(0, 300)....</p>
+                    }
+                    else
+                    {
+                        <p>@intro</p>
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 date">
+                    @date
+                </div>
+            </div>
+        </a>
+    }
+}

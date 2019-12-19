@@ -3,6 +3,7 @@
 
 @using (Html.BeginUmbracoForm("SubmitForm", "ContactSurface", new { pageId = Model.PageId }, FormMethod.Post))
 {
+    <h2 style="font-weight:400; text-align:center">Skicka gärna ett mail om du har en fråga</h2>
     @Html.AntiForgeryToken()
         <div class="contact-form mb-3">
             <div class="row">
@@ -44,16 +45,7 @@
                    required = "required"
                })
                 </div>
-
-                @*<div class="col-sm-4 col-2 pt-4">
-            @Html.TextBoxFor(m => m.PhonePre, new { placeholder = " +xx",
-                                                    @class = "form-control",
-                                                    onkeyup="this.setAttribute('value', this.value);",
-                                                    value="",
-                                                    pattern="([(+]*[0-9]+[()+. -]*)",
-                                                    required="required"})
-        </div>*@
-
+                
                 <div class="col-12 pt-4">
                     @*@Html.LabelFor(m => m.PhoneNumber)*@
                     @Html.TextBoxFor(m => m.PhoneNumber, new
@@ -115,7 +107,6 @@
                 }
 
                 <div class="col-12 pt-4">
-                    @*@Html.LabelFor(m => m.Message)*@
                     @Html.TextAreaFor(m => m.Message, new
                {
                    placeholder = " Meddelande",

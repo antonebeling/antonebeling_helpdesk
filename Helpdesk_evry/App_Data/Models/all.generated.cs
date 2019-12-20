@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4f6aa016a6a53595")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3b6134e8941d8d95")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.9")]
 
 
 // FILE: models.generated.cs
@@ -823,7 +823,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>LoginPage</summary>
 	[PublishedModel("loginPage")]
-	public partial class LoginPage : PublishedContentModel
+	public partial class LoginPage : PublishedContentModel, IContactFormContent, IFormControl
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -852,6 +852,48 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("loginMessage")]
 		public IHtmlString LoginMessage => this.Value<IHtmlString>("loginMessage");
+
+		///<summary>
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email, or leave empty to use default mail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("receievingEmail")]
+		public string ReceievingEmail => ContactFormContent.GetReceievingEmail(this);
+
+		///<summary>
+		/// Sending Email: Enter the email from which the emails will appear to be sent from, or leave empty to use default mail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("sendingEmail")]
+		public string SendingEmail => ContactFormContent.GetSendingEmail(this);
+
+		///<summary>
+		/// Service Department: Enter the list of the different Service Departments
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("serviceDepartment")]
+		public IEnumerable<string> ServiceDepartment => ContactFormContent.GetServiceDepartment(this);
+
+		///<summary>
+		/// Smtp Client: Enter your smtp client adrees e.g. 127.0.0.1
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("smtpClient")]
+		public string SmtpClient => ContactFormContent.GetSmtpClient(this);
+
+		///<summary>
+		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("typeOfProblem")]
+		public IEnumerable<string> TypeOfProblem => ContactFormContent.GetTypeOfProblem(this);
+
+		///<summary>
+		/// displayForm: Wether or not to display the contact form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("displayForm")]
+		public bool DisplayForm => FormControl.GetDisplayForm(this);
 	}
 
 	/// <summary>ErrorPage</summary>
@@ -889,7 +931,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>PortalPage</summary>
 	[PublishedModel("portalPage")]
-	public partial class PortalPage : PublishedContentModel
+	public partial class PortalPage : PublishedContentModel, IContactFormContent, IFormControl
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -911,6 +953,48 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Receieving Email: Enter the Email to wich you want to reveieve the email, or leave empty to use default mail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("receievingEmail")]
+		public string ReceievingEmail => ContactFormContent.GetReceievingEmail(this);
+
+		///<summary>
+		/// Sending Email: Enter the email from which the emails will appear to be sent from, or leave empty to use default mail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("sendingEmail")]
+		public string SendingEmail => ContactFormContent.GetSendingEmail(this);
+
+		///<summary>
+		/// Service Department: Enter the list of the different Service Departments
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("serviceDepartment")]
+		public IEnumerable<string> ServiceDepartment => ContactFormContent.GetServiceDepartment(this);
+
+		///<summary>
+		/// Smtp Client: Enter your smtp client adrees e.g. 127.0.0.1
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("smtpClient")]
+		public string SmtpClient => ContactFormContent.GetSmtpClient(this);
+
+		///<summary>
+		/// typeOfProblem: Enter all the types of problem the user shall be able to choose from
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("typeOfProblem")]
+		public IEnumerable<string> TypeOfProblem => ContactFormContent.GetTypeOfProblem(this);
+
+		///<summary>
+		/// displayForm: Wether or not to display the contact form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("displayForm")]
+		public bool DisplayForm => FormControl.GetDisplayForm(this);
 	}
 
 	/// <summary>DownloadItem</summary>
